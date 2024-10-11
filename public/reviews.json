@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "img": "https://i.pinimg.com/enabled_lo/564x/d0/cb/d1/d0cbd1380c72ddf3750c896433b2dea1.jpg",
+    "name": "Sarah Thompson",
+    "joinTime": "2022-05-15",
+    "reviewLocation": "New York, USA",
+    "comment": "Investing in this platform was a no-brainer for us. The way they’re tackling food waste while feeding communities in need is nothing short of revolutionary. Their model is not only sustainable, but it also delivers real social impact. We're proud to be part of this mission to fight hunger and reduce waste simultaneously."
+  },
+  {
+    "id": 2,
+    "img": "https://i.pinimg.com/enabled_lo/736x/a8/89/65/a889650d5b2f43071714eb073d9574b4.jpg",
+    "name": "David Garcia",
+    "joinTime": "2021-09-30",
+    "reviewLocation": "San Francisco, USA",
+    "comment": "What drew us in was the company's ability to create a scalable solution to one of the biggest problems facing the world today—food waste. By efficiently redistributing surplus food, they’re creating both environmental and social benefits. The vision is bold, the execution is flawless, and we’re excited to see where this partnership goes."
+  },
+  {
+    "id": 3,
+    "img": "https://i.pinimg.com/564x/49/c1/34/49c1344117815662db4634dde7fbe423.jpg",
+    "name": "Emily Wang",
+    "joinTime": "2023-02-10",
+    "reviewLocation": "London, UK",
+    "comment": "From the very first pitch, we knew this was the kind of socially conscious business we wanted to support. Their ability to marry tech with a real-world problem like hunger is inspiring. They’ve found a way to make helping the less fortunate a priority without compromising profitability."
+  },
+  {
+    "id": 4,
+    "img": "https://i.pinimg.com/736x/6c/42/1a/6c421afa05c0f9d8a19d882807baccda.jpg",
+    "name": "Michael Johnson",
+    "joinTime": "2020-11-05",
+    "reviewLocation": "Berlin, Germany",
+    "comment": "This is the kind of innovation the world needs right now. Not only does this platform solve food waste issues, but it also empowers local communities by providing nutritious meals to those in need. We’re thrilled to be investing in a company that’s not just about returns, but real, lasting change."
+  },
+  {
+    "id": 5,
+    "img": "https://i.pinimg.com/564x/d1/b0/d0/d1b0d0455f435e4213c817223d7d2001.jpg",
+    "name": "Rachel Patel",
+    "joinTime": "2021-07-22",
+    "reviewLocation": "Sydney, Australia",
+    "comment": "Supporting this initiative was an easy decision. Their model of connecting food waste with those who need it most is innovative and has the potential to create a massive positive impact. It’s rare to see a business where the financial and social returns are so closely aligned. This is the future of responsible investing."
+  }
+]

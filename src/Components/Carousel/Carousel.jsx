@@ -6,16 +6,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // Import Carousel Images
-import carousel1 from "../../assets/Carousel1.jpg";
-import carousel2 from "../../assets/Carousel2.jpg";
-import carousel3 from "../../assets/Carousel3.jpg";
-import carousel4 from "../../assets/Carousel4.jpg";
-import carousel5 from "../../assets/Carousel5.jpg";
-import carousel6 from "../../assets/Carousel6.jpg";
-import carousel7 from "../../assets/Carousel7.jpg";
-import carousel8 from "../../assets/Carousel8.jpg";
-import carousel9 from "../../assets/Carousel9.jpg";
-import carousel0 from "../../assets/Carousel10.jpg";
+import carousel1 from "../../assets/Home/CarouselImages/Carousel1.jpg";
+import carousel2 from "../../assets/Home/CarouselImages/Carousel2.jpg";
+import carousel3 from "../../assets/Home/CarouselImages/Carousel3.jpg";
+import carousel4 from "../../assets/Home/CarouselImages/Carousel4.jpg";
+import carousel5 from "../../assets/Home/CarouselImages/Carousel5.jpg";
+import carousel6 from "../../assets/Home/CarouselImages/Carousel6.jpg";
+import carousel7 from "../../assets/Home/CarouselImages/Carousel7.jpg";
+import carousel8 from "../../assets/Home/CarouselImages/Carousel8.jpg";
+import carousel9 from "../../assets/Home/CarouselImages/Carousel9.jpg";
+import carousel0 from "../../assets/Home/CarouselImages/Carousel10.jpg";
 
 const Carousel = () => {
   const carouselArray = [
@@ -38,8 +38,8 @@ const Carousel = () => {
         clickable: true,
       }}
       autoplay={{
-        delay: 2000, // Delay between transitions (3 seconds)
-        disableOnInteraction: false, // Continue autoplay after user interactions
+        delay: 2000,
+        disableOnInteraction: false,
       }}
       modules={[Pagination, Autoplay]}
       className="mySwiper w-full h-full"

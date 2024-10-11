@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [flowbite.plugin(), require("daisyui")],
+  plugins: [flowbite.plugin({ charts: true }), require("daisyui")],
   daisyui: {
     themes: [
       {

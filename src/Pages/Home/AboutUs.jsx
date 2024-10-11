@@ -6,7 +6,7 @@ const AboutUs = () => {
       <h1 className="text-white text-2xl font-bold text-center p-2">
         About Us
       </h1>
-      <div className='w-full h-[400px] my-10'>
+      <div className="w-full h-[400px] my-10">
         <Carousel />
       </div>
       <p className="text-left text-white mb-5">
