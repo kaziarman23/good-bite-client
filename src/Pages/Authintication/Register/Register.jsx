@@ -2,16 +2,20 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { VscGithubInverted } from "react-icons/vsc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Auth/AuthProvider";
 import Swal from "sweetalert2";
+import UseAxios from "../../../CusmotHooks/UseAxios";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   // Context api
   const { createUser, updateUser, googleAuthintication, githubAuthintication } =
     useContext(AuthContext);
 
-  // using useForm hook
+  // hooks
+  const axiosPublic = UseAxios();
   const {
     register,
     handleSubmit,
@@ -25,70 +29,115 @@ const Register = () => {
     createUser(data.email, data.password).then(() => {
       // updating user
       updateUser(data.name, data.photo).then(() => {
-        // showing alert and reseting the form
-        reset();
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
-        Toast.fire({
-          icon: "success",
-          title: "Registation successfully",
-        });
+        const userInfo = {
+          name: data.name,
+          email: data.email,
+          photo: data.photo,
+        };
+        axiosPublic
+          .post("/users", userInfo)
+          .then((res) => {
+            console.log(res);
+            if (res.data.insertedId) {
+              // showing alert and navigating the user to home page
+              reset();
+              navigate("/");
+
+              const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                },
+              });
+              Toast.fire({
+                icon: "success",
+                title: "Registation successfully",
+              });
+            }
+          })
+          .catch((error) => console.log(error.message, error));
       });
     });
   };
 
   // Register with Google
   const handleGoogleRegister = () => {
-    googleAuthintication().then(() => {
-      // showing alert and reseting the form
-      reset();
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
-      });
-      Toast.fire({
-        icon: "success",
-        title: "Registation successfully",
-      });
+    googleAuthintication().then((data) => {
+      const userInfo = {
+        name: data.user?.displayName,
+        email: data.user?.email,
+        photo: data.user?.photoURL,
+      };
+      axiosPublic
+        .post("/users", userInfo)
+        .then((res) => {
+          console.log(res);
+          if (res.data.insertedId) {
+            // showing alert and navigating the user to home page
+            reset();
+            navigate("/");
+
+            const Toast = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+              },
+            });
+            Toast.fire({
+              icon: "success",
+              title: "Registation successfully",
+            });
+          }
+        })
+        .catch((error) => console.log(error));
     });
   };
 
   // Register with Github
   const handleGithubRegister = () => {
-    githubAuthintication().then(() => {
-      // showing alert and reseting the form
-      reset();
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
-      });
-      Toast.fire({
-        icon: "success",
-        title: "Registation successfully",
-      });
+    githubAuthintication().then((data) => {
+      const userInfo = {
+        name: data.user?.displayName,
+        email: data.user?.email,
+        photo: data.user?.photoURL,
+      };
+      axiosPublic
+        .post("/users", userInfo)
+        .then((res) => {
+          console.log(res);
+          if (res.data.insertedId) {
+            // showing alert and navigating the user to home page
+            reset();
+            navigate("/");
+
+            const Toast = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+              },
+            });
+            Toast.fire({
+              icon: "success",
+              title: "Registation successfully",
+            });
+          }
+        })
+        .catch((error) => console.log(error));
     });
   };
 
