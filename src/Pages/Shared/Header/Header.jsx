@@ -1,7 +1,35 @@
 import { Link, NavLink } from "react-router-dom";
-import PurpleToBlueBtn from "../../../CusmotHooks/PurpleToBlueBtn";
+import UsePurpleToBlueBtn from "../../../CusmotHooks/PurpleToBlueBtn";
+import { useContext } from "react";
+import { AuthContext } from "../../../Auth/AuthProvider";
+import Swal from "sweetalert2";
+import UseOutletRedBtn from "../../../CusmotHooks/UseOutletRedBtn";
 
 const Header = () => {
+  // Context api
+  const { user, logoutUser } = useContext(AuthContext);
+
+  // Handle Logout
+  const handleLogout = () => {
+    logoutUser().then(() => {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Logout successfull",
+      });
+    });
+  };
+
   const navlinks = (
     <>
       <NavLink to="/">
@@ -60,9 +88,13 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{navlinks}</ul>
       </div>
       <div className="navbar-end">
-        <Link to="/register">
-          <PurpleToBlueBtn>Register</PurpleToBlueBtn>
-        </Link>
+        {user ? (
+          <UseOutletRedBtn onClick={handleLogout}>Logout</UseOutletRedBtn>
+        ) : (
+          <Link to="/register">
+            <UsePurpleToBlueBtn>Register</UsePurpleToBlueBtn>
+          </Link>
+        )}
       </div>
     </div>
   );

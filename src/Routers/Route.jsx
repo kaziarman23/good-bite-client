@@ -5,6 +5,8 @@ import AvailableFoods from "../Pages/AvailableFoods/AvailableFoods";
 import AddFoods from "../Pages/AddFoods/AddFoods";
 import MyFoods from "../Pages/MyFoods/MyFoods";
 import RequestFoods from "../Pages/RequestFoods/RequestFoods";
+import Register from "../Pages/Authintication/Register/Register";
+import Login from "../Pages/Authintication/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "/requestFoods",
         element: <RequestFoods />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
