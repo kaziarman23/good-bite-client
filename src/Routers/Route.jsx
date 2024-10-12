@@ -2,11 +2,12 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home/Home";
 import Root from "../Layout/Root/Root";
 import AvailableFoods from "../Pages/AvailableFoods/AvailableFoods";
-import AddFoods from "../Pages/AddFoods/AddFoods";
+import AddFood from "../Pages/AddFoods/AddFood";
 import MyFoods from "../Pages/MyFoods/MyFoods";
 import RequestFoods from "../Pages/RequestFoods/RequestFoods";
 import Register from "../Pages/Authintication/Register/Register";
 import Login from "../Pages/Authintication/Login/Login";
+import NotFound from "../Pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,8 @@ const router = createBrowserRouter([
         element: <AvailableFoods />,
       },
       {
-        path: "/addFoods",
-        element: <AddFoods />,
+        path: "/addFood",
+        element: <AddFood />,
       },
       {
         path: "/myFoods",
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },

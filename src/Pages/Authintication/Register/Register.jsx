@@ -76,7 +76,6 @@ const Register = () => {
       axiosPublic
         .post("/users", userInfo)
         .then((res) => {
-          console.log(res);
           if (res.data.insertedId) {
             // showing alert and navigating the user to home page
             reset();

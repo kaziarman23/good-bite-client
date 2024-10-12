@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import UsePurpleToBlueBtn from "../../../CusmotHooks/PurpleToBlueBtn";
 import { useContext } from "react";
 import { AuthContext } from "../../../Auth/AuthProvider";
@@ -6,12 +6,14 @@ import Swal from "sweetalert2";
 import UseOutletRedBtn from "../../../CusmotHooks/UseOutletRedBtn";
 
 const Header = () => {
+  const navigate = useNavigate();
   // Context api
   const { user, logoutUser } = useContext(AuthContext);
 
   // Handle Logout
   const handleLogout = () => {
     logoutUser().then(() => {
+      navigate("/");
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
@@ -38,7 +40,7 @@ const Header = () => {
       <NavLink to="/availableFoods">
         <li className="p-2 font-bold text-white text-xl">Available Foods</li>
       </NavLink>
-      <NavLink to="/addFoods">
+      <NavLink to="/addFood">
         <li className="p-2 font-bold text-white text-xl">Add Food</li>
       </NavLink>
       <NavLink to="/myFoods">
