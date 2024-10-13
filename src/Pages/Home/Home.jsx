@@ -5,6 +5,7 @@ import Why from "./Why";
 import OurImpact from "./OurImpact";
 import Investors from "./Investors";
 import Reviews from "./Reviews";
+import OurFocus from "./OurFocus";
 
 const Home = () => {
   return (
@@ -16,11 +17,8 @@ const Home = () => {
       <Quistion />
       <hr className="w-4/5 mx-auto" />
       <Why />
-      <hr className="w-4/5 mx-auto" />
+      <OurFocus />
       <OurImpact />
-      {/* higher quantity food will be displayed in the future. */}
-      {/* <hr className="w-4/5 mx-auto" />
-      <Features /> */}
       <hr className="w-4/5 mx-auto" />
       <Investors />
       <hr className="w-4/5 mx-auto" />

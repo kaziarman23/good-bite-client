@@ -9,15 +9,15 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
+import UseAxios from "../../CusmotHooks/UseAxios";
 
 const Reviews = () => {
   const [reviewData, setReviewData] = useState([]);
+  const axiosPublic = UseAxios();
 
   useEffect(() => {
-    fetch("/reviews.json")
-      .then((res) => res.json())
-      .then((data) => setReviewData(data));
-  }, []);
+    axiosPublic.get("/reviews").then((res) => setReviewData(res.data));
+  }, [axiosPublic]);
 
   return (
     <div className="w-4/5 h-[280px] mx-auto">
@@ -34,8 +34,8 @@ const Reviews = () => {
       >
         {reviewData &&
           reviewData.map((review) => (
-            <SwiperSlide key={review.id}>
-              <article className='mx-14'>
+            <SwiperSlide key={review._id}>
+              <article className="mx-14">
                 <div className="flex items-center mb-4">
                   <img
                     className="w-10 h-10 me-4 rounded-full"

@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const AddFood = () => {
   // context api
-  const { user, loading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   // hooks
   const axiosPublic = UseAxios();
