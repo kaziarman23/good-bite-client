@@ -5,6 +5,7 @@ import UseOutletRedBtn from "../../CusmotHooks/UseOutletRedBtn";
 import UseGreenToBlueBtn from "../../CusmotHooks/UseGreenToBlueBtn";
 import UseAxios from "../../CusmotHooks/UseAxios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyFoods = () => {
   // context api
@@ -14,11 +15,16 @@ const MyFoods = () => {
   const axiosPublic = UseAxios();
   const [food, refetch] = UseFood();
 
+  // filtering the data
   const foodlist = food.filter((food) => food.email === user.email);
-  console.log(foodlist);
 
-  // handle update food
-  const handleUpdateFood = () => {};
+  // handle update food item
+  // const handleUpdateFood = (id) => {
+  //   axiosPublic
+  //     .patch(`/foods/${id}`)
+  //     .then((res) => console.log(res.data))
+  //     .catch((error) => console.log(error));
+  // };
 
   // handle delete food item
   const handleDeleteFood = (id) => {
@@ -49,6 +55,19 @@ const MyFoods = () => {
       }
     });
   };
+
+  if (foodlist.length === 0) {
+    return (
+      <div className="w-full h-screen flex justify-center items-center flex-col gap-3">
+        <h1 className="text-white text-2xl uppercase">
+          No food item donated till now From you !
+        </h1>
+        <Link to="/addFood">
+          <UseGreenToBlueBtn>Add Food</UseGreenToBlueBtn>
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full h-screen bg-black">
@@ -93,9 +112,9 @@ const MyFoods = () => {
                   <td>{food.pickupLocation}</td>
                   <td>{food.expireDate}</td>
                   <th>
-                    <UseGreenToBlueBtn onClick={handleUpdateFood}>
-                      Update
-                    </UseGreenToBlueBtn>
+                    <Link to={`/updateFood/${food._id}`}>
+                      <UseGreenToBlueBtn>Update</UseGreenToBlueBtn>
+                    </Link>
                     <UseOutletRedBtn onClick={() => handleDeleteFood(food._id)}>
                       Delete
                     </UseOutletRedBtn>
