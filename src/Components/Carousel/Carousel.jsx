@@ -30,9 +30,9 @@ const Carousel = () => {
     { id: 9, img: carousel9 },
     { id: 10, img: carousel0 },
   ];
+
   return (
     <Swiper
-      slidesPerView={3}
       spaceBetween={30}
       pagination={{
         clickable: true,
@@ -41,6 +41,28 @@ const Carousel = () => {
         delay: 2000,
         disableOnInteraction: false,
       }}
+      breakpoints={{
+        // When the window width is >= 640px
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        // When the window width is >= 768px
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        // When the window width is >= 1024px
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        // When the window width is >= 1280px
+        1280: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+      }}
       modules={[Pagination, Autoplay]}
       className="mySwiper w-full h-full"
     >
@@ -48,7 +70,7 @@ const Carousel = () => {
         <SwiperSlide key={img.id}>
           <img
             src={img.img}
-            alt="carousel images"
+            alt={`carousel image ${img.id}`}
             className="object-cover w-full h-full"
           />
         </SwiperSlide>

@@ -1,15 +1,17 @@
 const Why = () => {
   return (
-    <div className="w-4/5 h-auto mx-auto">
-      <div className="text-white  flex justify-center items-center my-10">
-        <div className="w-1/2 h-full flex justify-center items-center">
+    <div className="w-4/5 h-[900px] mx-auto lg:h-[900px] xl:h-[300px]">
+      <div className="text-white flex flex-col justify-center items-center my-10 xl:flex-row">
+        {/* <div className="w-1/2 h-full flex justify-center items-center"> */}
+        <div className="w-full h-full flex justify-center items-center xl:w-1/2">
           <img
             src="https://i.pinimg.com/564x/c2/cb/99/c2cb991efab328100bc9f692e15c6368.jpg"
             alt="question section image"
-            className="w-1/2 h-[50%] object-cover rounded-xl"
+            className="w-full h-[50%] object-cover rounded-xl xl:w-1/2"
           />
         </div>
-        <div className="w-1/2 h-full">
+        {/* <div className="w-1/2 h-full"> */}
+        <div className="w-full h-full xl:1/2">
           <h1 className="text-2xl text-center p-2">
             But we are still wasting our food.
           </h1>

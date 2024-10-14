@@ -2,7 +2,7 @@ import PieChart from "../../Components/PieChart/PieChart";
 
 const OurImpact = () => {
   return (
-    <div className="w-4/5 h-auto mx-auto text-white space-y-5">
+    <div className="w-4/5 h-[4350px] mx-auto text-white space-y-5 sm:h-[2800px] md:h-[2600px] lg:h-[2300px] xl:h-[1600px]">
       {/* title content */}
       <div>
         <h1 className="text-2xl text-center font-bold">Our Impact</h1>
@@ -12,16 +12,14 @@ const OurImpact = () => {
       </div>
       <p className="text-left">
         At Good Bite, we are committed to making sure that no food goes to
-        waste, and no one in our community goes hungry. Here’s a snapshot of our
-        work so far:
+        waste, and no one in our community goes hungry. <br /> Here’s a snapshot
+        of our work so far:
       </p>
-
-      {/* 1st row */}
-      <div className="w-full h-80 text-white  flex justify-center items-center gap-5">
-        <div className="w-1/2 h-full space-y-5">
+      <div className="grid grid-cols-1 gap-3 xl:grid-cols-2 xl:gap-2">
+        <div className="w-full h-full space-y-5">
           <h1 className="text-2xl text-center p-2">Food Rescued & Shared</h1>
           <p>
-            <span className="font-bold">Meals shared:</span> Thanks to the
+            <span className="font-bold">Meals shared: </span> Thanks to the
             generosity of local restaurants, grocery stores, and community
             members, we have successfully redistributed over 7,500 kg (16,500
             lbs) of surplus food to families in need. This includes fresh
@@ -29,13 +27,13 @@ const OurImpact = () => {
             otherwise been wasted.
           </p>
           <p>
-            <span className="font-bold">Local food waste:</span>
+            <span className="font-bold">Local food waste: </span>
             Our platform has helped local businesses reduce their food waste by
             more than half, ensuring that edible food goes to those who need it
             most rather than ending up in landfills.
           </p>
         </div>
-        <div className="w-1/2 h-full space-y-5">
+        <div className="w-full h-full space-y-5">
           <h1 className="text-2xl text-center p-2">Helping Local Families</h1>
           <p>
             <span className="font-bold">Families served: </span> Through our
@@ -44,63 +42,52 @@ const OurImpact = () => {
             families facing food insecurity this year alone.
           </p>
           <p>
-            <span className="font-bold">
-              Special focus on children and seniors:
-            </span>
+            <span className="font-bold">Special focus on children: </span>
             We’ve made it a priority to support vulnerable populations,
             distributing healthy food packages to over 1,200 children and 800
             seniors who struggle with access to regular meals.
           </p>
         </div>
-      </div>
-
-      {/* 2nd row */}
-      <div className="w-full h-80 text-white  flex justify-center items-center gap-5">
-        <div className="w-1/2 h-full space-y-5">
+        <div className="w-full h-full space-y-5">
           <h1 className="text-2xl text-center p-2">Partnering for Good</h1>
           <p>
-            <span className="font-bold">Local businesses partnered:</span>
+            <span className="font-bold">Local businesses partnered: </span>
             From cafes and restaurants to farms and supermarkets, we’ve teamed
             up with over 40 businesses to collect surplus food and redistribute
             it to those in need.
           </p>
           <p>
-            <span className="font-bold">Volunteers powering change:</span>
+            <span className="font-bold">Volunteers powering change: </span>
             With the support of 200+ dedicated volunteers, we’ve been able to
             efficiently collect, sort, and deliver food to local charities and
             directly to individuals in need.
           </p>
         </div>
-        <div className="w-1/2 h-full space-y-5">
+        <div className="w-full h-full space-y-5">
           <h1 className="text-2xl text-center p-2">
             Recent Activity: A Successful Food Drive
           </h1>
           <p>
-            <span className="font-bold">Community Food Drive Event:</span> Last
+            <span className="font-bold">Community Food Drive Event: </span> Last
             month, we hosted a food drive where over 1,000 kg (2,200 lbs) of
             food was donated by community members in just two days! This food
             was immediately redistributed to 300 families in our area, providing
             them with fresh meals for the week.
           </p>
           <p>
-            <span className="font-bold">Supporting Crisis Relief:</span>
+            <span className="font-bold">Supporting Crisis Relief: </span>
             During a recent local emergency, we stepped up to provide immediate
             food support, delivering over 500 emergency food kits to displaced
             families, ensuring they had access to basic essentials during tough
             times.
           </p>
         </div>
-      </div>
-
-      {/* 3nd row */}
-      <div className="w-full h-[870px] text-white  flex justify-center items-center gap-5">
-        {/* chart  */}
-        <div className="w-1/2 h-full">
+        <div className="w-full h-full">
           <PieChart />
         </div>
 
         {/* chart description */}
-        <div className="w-1/2 h-full space-y-5">
+        <div className="w-full h-full space-y-5">
           <h1 className="text-2xl text-center p-2">
             Food Source Contributions - October 2024
           </h1>

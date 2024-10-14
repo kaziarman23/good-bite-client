@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Auth/AuthProvider";
 import Swal from "sweetalert2";
 import UseOutletRedBtn from "../../../CusmotHooks/UseOutletRedBtn";
+import UseUnderlineBtn from "../../../CusmotHooks/UseUnderlineBtn";
+import UseBorderYBtn from "../../../CusmotHooks/UseBorderYBtn";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -35,19 +37,29 @@ const Header = () => {
   const navlinks = (
     <>
       <NavLink to="/">
-        <li className="p-2 font-bold text-white text-xl">Home</li>
+        <UseUnderlineBtn>
+          <li className="p-2 font-bold text-white text-sm">Home</li>
+        </UseUnderlineBtn>
       </NavLink>
       <NavLink to="/availableFoods">
-        <li className="p-2 font-bold text-white text-xl">Available Foods</li>
+        <UseUnderlineBtn>
+          <li className="p-2 font-bold text-white text-sm">Available Foods</li>
+        </UseUnderlineBtn>
       </NavLink>
       <NavLink to="/addFood">
-        <li className="p-2 font-bold text-white text-xl">Add Food</li>
+        <UseUnderlineBtn>
+          <li className="p-2 font-bold text-white text-sm">Add Food</li>
+        </UseUnderlineBtn>
       </NavLink>
       <NavLink to="/myFoods">
-        <li className="p-2 font-bold text-white text-xl">My Foods</li>
+        <UseUnderlineBtn>
+          <li className="p-2 font-bold text-white text-sm">My Foods</li>
+        </UseUnderlineBtn>
       </NavLink>
       <NavLink to="/requestFoods">
-        <li className="p-2 font-bold text-white text-xl">My Food Requests</li>
+        <UseUnderlineBtn>
+          <li className="p-2 font-bold text-white text-sm">My Food Requests</li>
+        </UseUnderlineBtn>
       </NavLink>
     </>
   );
@@ -74,17 +86,12 @@ const Header = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow glass bg-slate-900"
           >
             {navlinks}
           </ul>
         </div>
-        <a
-          className="btn btn-ghost text-xl text-white hover:text-blue-500"
-          title="Home Page"
-        >
-          Good Bite
-        </a>
+        <UseBorderYBtn title="Home Page">Good Bite</UseBorderYBtn>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navlinks}</ul>

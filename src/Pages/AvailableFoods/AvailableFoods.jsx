@@ -21,7 +21,7 @@ const AvailableFoods = () => {
           food items are added throughout the day.
         </p>
 
-        {/* card content */}
+        {/* card's content */}
         <div className="grid gap-5 my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {food.map((food, index) => (
             <UseFoodCard key={index} food={food}></UseFoodCard>

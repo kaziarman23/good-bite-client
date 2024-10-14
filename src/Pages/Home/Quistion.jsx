@@ -1,10 +1,10 @@
 const Quistion = () => {
   return (
-    <div className="w-4/5 h-auto mx-auto">
-      <div className="text-white  flex justify-center items-center my-10">
-        <div className="w-1/2 h-full">
-          <h1 className="text-2xl text-center p-2">
-            Global Hunger Statistics{" "}
+    <div className="w-4/5 h-[725px] mx-auto sm:h-[800px] md:h-[850px] lg:h-[1000px] xl:h-[380px]">
+      <div className="text-white flex flex-col gap-4 justify-center items-center my-10 xl:flex-row xl:gap-0">
+        <div className="w-full h-full xl:w-1/2">
+          <h1 className="text-2xl text-left mb-2 xl:mb-0">
+            Global Hunger Statistics
           </h1>
           <p>
             Around 735 million people around the world are facing hunger in
@@ -18,11 +18,11 @@ const Quistion = () => {
             causes. This means a child dies every 10 seconds due to hunger.
           </p>
         </div>
-        <div className="w-1/2 h-full flex justify-center items-center">
+        <div className="w-full h-full flex justify-center items-center xl:w-1/2">
           <img
             src="https://i.pinimg.com/564x/55/f5/ec/55f5ec4ad769f2d7e5e1b374f531885d.jpg"
             alt="question section image"
-            className="w-1/2 h-[50%] object-cover rounded-xl"
+            className="w-4/5 h-1/2 object-cover rounded-xl xl:w-1/2 xl:h-[50%]"
           />
         </div>
       </div>

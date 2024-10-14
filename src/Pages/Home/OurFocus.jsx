@@ -1,7 +1,7 @@
 const OurFocus = () => {
   return (
     <div
-      className="w-4/5 h-[500px] mx-auto text-white relative bg-fixed"
+      className="w-full h-[500px] text-white relative bg-fixed sm:h-[600px] lg:h-[800px] xl:w-4/5 xl:h-[500px] xl:mx-auto"
       style={{
         backgroundImage: `url(https://i.pinimg.com/564x/84/ba/62/84ba624e9627ffe7f999c6c820931eeb.jpg)`,
         backgroundRepeat: "no-repeat",
@@ -11,17 +11,17 @@ const OurFocus = () => {
     >
       <div className="w-full h-full bg-black opacity-80 absolute top-0 left-0 z-10"></div>
 
-      <div className="relative z-20 h-full flex flex-col gap-5 justify-center items-center">
+      <div className="relative z-20 w-full h-full flex flex-col gap-5 justify-center items-center">
         <h1 className="text-center text-4xl font-bold p-2">Our Main Focus</h1>
-        <div className="flex justify-center items-center">
-          <div className="w-1/2 flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center gap-4 xl:flex-row">
+          <div className="w-full flex justify-center items-center xl:w-1/2">
             <img
               src="https://i.pinimg.com/564x/84/ba/62/84ba624e9627ffe7f999c6c820931eeb.jpg"
               alt="focus image"
-              className="object-cover w-1/2 h-1/2"
+              className="object-cover w-4/5 h-full rounded-xl xl:w-1/2 xl:h-1/2"
             />
           </div>
-          <div className="w-1/2 space-y-3">
+          <div className="w-4/5 space-y-3">
             <h1 className="text-left font-bold text-2xl">At GOOD BITE,</h1>
             <p>
               Our mission is simple yet powerful: to reduce food waste and

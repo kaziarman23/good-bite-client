@@ -1,0 +1,27 @@
+.borderYBtn {
+  color: white;
+  text-decoration: none;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.borderYBtn::before {
+  margin-left: auto;
+}
+
+.borderYBtn::after,
+.borderYBtn::before {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: white;
+  display: block;
+  transition: 0.5s;
+}
+
+.borderYBtn:hover::after,
+.borderYBtn:hover::before {
+  width: 100%;
+}

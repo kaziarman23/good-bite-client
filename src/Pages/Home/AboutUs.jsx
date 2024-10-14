@@ -2,13 +2,13 @@ import Carousel from "../../Components/Carousel/Carousel";
 
 const AboutUs = () => {
   return (
-    <div className="w-4/5 h-auto mx-auto">
-      <h1 className="text-white text-2xl font-bold text-center p-2">
-        About Us
-      </h1>
+    <div className="w-4/5 h-[1170px] mx-auto sm:h-[840px] md:h-[800px] lg:h-[700px] xl:h-[650px]">
       <div className="w-full h-[400px] my-10">
         <Carousel />
       </div>
+      <h1 className="text-white text-2xl font-bold text-left">
+        About Us
+      </h1>
       <p className="text-left text-white mb-5">
         Every year, tons of perfectly good food are wasted, while many people
         struggle to find their next meal. At GoodBite, we believe we can change

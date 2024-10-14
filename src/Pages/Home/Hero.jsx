@@ -1,16 +1,16 @@
 const Hero = () => {
   return (
-    <div className="w-full h-screen flex justify-center items-center bg-black">
-      <div className="w-1/2 h-full flex justify-center items-center">
+    <div className="w-full h-[741px] flex flex-col justify-center items-center bg-black xl:h-screen xl:flex-row">
+      <div className="w-full h-full p-3 flex justify-center items-center md:p-0 xl:w-1/2">
         <img
           src="https://i.pinimg.com/564x/c2/c1/15/c2c1158b5d2b0de3e32fb98c16db4849.jpg"
           alt="hero section image"
-          className=" object-cover rounded-xl"
+          className="object-cover rounded-xl"
         />
       </div>
-      <div className="w-1/2 space-y-5 text-white flex text-left  flex-col">
-        <h1 className="text-4xl font-bold">Good Bite</h1>
-        <p className="font-bold">
+      <div className="w-full space-y-5 p-3 text-white flex text-left flex-col xl:w-1/2">
+        <h1 className="text-2xl font-bold xl:text-4xl">Good Bite</h1>
+        <p className="font-bold text-sm xl:text-base">
           Together, We Can End Food Waste & Feed Our People
         </p>
         <p className="mr-5">

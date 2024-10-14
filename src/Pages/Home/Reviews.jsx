@@ -20,10 +20,10 @@ const Reviews = () => {
   }, [axiosPublic]);
 
   return (
-    <div className="w-4/5 h-[280px] mx-auto">
+    <div className="w-full max-w-4xl h-auto mx-auto px-4 sm:px-6 lg:px-8 py-6">
       <Swiper
         slidesPerView={1}
-        spaceBetween={30}
+        spaceBetween={20}
         pagination={{
           clickable: true,
         }}
@@ -35,29 +35,31 @@ const Reviews = () => {
         {reviewData &&
           reviewData.map((review) => (
             <SwiperSlide key={review._id}>
-              <article className="mx-14">
+              <article className="mx-4 sm:mx-8 md:mx-14">
                 <div className="flex items-center mb-4">
                   <img
-                    className="w-10 h-10 me-4 rounded-full"
+                    className="w-8 h-8 sm:w-10 sm:h-10 mr-3 rounded-full"
                     src={review.img}
                     alt={review.name}
                   />
                   <div className="font-medium text-white">
-                    <p>
+                    <p className="text-sm sm:text-base">
                       {review.name}
                       <time
-                        dateTime="2014-08-16 19:00"
-                        className="block text-sm text-gray-400"
+                        dateTime={review.joinTime}
+                        className="block text-xs sm:text-sm text-gray-400"
                       >
                         {review.joinTime}
                       </time>
                     </p>
                   </div>
                 </div>
-                <footer className="mb-5 text-sm text-gray-400">
+                <footer className="mb-3 sm:mb-5 text-xs sm:text-sm text-gray-400">
                   <p>{review.reviewLocation}</p>
                 </footer>
-                <p className="mb-2 text-gray-400">{review.comment}</p>
+                <p className="mb-2 text-xs sm:text-base text-gray-400">
+                  {review.comment}
+                </p>
               </article>
             </SwiperSlide>
           ))}
