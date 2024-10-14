@@ -59,7 +59,7 @@ const FoodDetails = () => {
             if (res.data.requestResult.insertedId) {
               // refetching the data and sending user to home
               refetch();
-              navigate("/");
+              navigate("/availableFoods");
 
               // showing alert
               Swal.fire({

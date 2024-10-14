@@ -18,14 +18,6 @@ const MyFoods = () => {
   // filtering the data
   const foodlist = food.filter((food) => food.email === user.email);
 
-  // handle update food item
-  // const handleUpdateFood = (id) => {
-  //   axiosPublic
-  //     .patch(`/foods/${id}`)
-  //     .then((res) => console.log(res.data))
-  //     .catch((error) => console.log(error));
-  // };
-
   // handle delete food item
   const handleDeleteFood = (id) => {
     Swal.fire({
@@ -58,7 +50,7 @@ const MyFoods = () => {
 
   if (foodlist.length === 0) {
     return (
-      <div className="w-full h-screen flex justify-center items-center flex-col gap-3">
+      <div className="w-full h-screen bg-black flex justify-center items-center flex-col gap-3">
         <h1 className="text-white text-2xl uppercase">
           No food item donated till now From you !
         </h1>

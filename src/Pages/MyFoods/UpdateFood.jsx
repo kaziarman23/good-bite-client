@@ -35,7 +35,7 @@ const UpdateFood = () => {
           navigate(-1);
           Swal.fire({
             title: "Success",
-            text: `${loadedData.foodName}`,
+            text: `${loadedData.foodName} is now updated`,
             icon: "success",
             confirmButtonText: "OK",
           });
@@ -85,7 +85,7 @@ const UpdateFood = () => {
                 Quantit
               </label>
               <input
-                type="number"
+                type="text"
                 name="quantity"
                 id="quantity"
                 className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"

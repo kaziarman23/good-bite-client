@@ -53,8 +53,11 @@ const Login = () => {
   // Login with Google
   const handleGoogleLogin = () => {
     googleAuthintication().then(() => {
+      // navigating the user
+      const redirectTo = location?.state?.from || "/";
+      navigate(redirectTo);
+
       // showing alert and reseting the form
-      navigate("/");
       reset();
       const Toast = Swal.mixin({
         toast: true,
@@ -77,9 +80,12 @@ const Login = () => {
   // Login with Github
   const handleGithubLogin = () => {
     githubAuthintication().then(() => {
+      // navigating the user
+      const redirectTo = location?.state?.from || "/";
+      navigate(redirectTo);
+
       // showing alert and reseting the form
       reset();
-      navigate("/");
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
