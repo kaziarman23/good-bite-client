@@ -1,14 +1,14 @@
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { VscGithubInverted } from "react-icons/vsc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Auth/AuthProvider";
 import { useContext } from "react";
 import Swal from "sweetalert2";
 
 const Login = () => {
-
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Context api
   const { loginUser, googleAuthintication, githubAuthintication } =
@@ -27,7 +27,11 @@ const Login = () => {
     loginUser(data.email, data.password).then(() => {
       // showing alert and reseting the form
       reset();
-      navigate("/");
+
+      // navigating the user
+      const redirectTo = location?.state?.from || "/";
+      navigate(redirectTo);
+
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",

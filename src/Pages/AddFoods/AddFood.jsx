@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
 import { useForm } from "react-hook-form";
 import UseAxios from "../../CusmotHooks/UseAxios";
@@ -55,19 +55,17 @@ const AddFood = () => {
     });
   };
 
-  useEffect(() => {
-    if (!user) {
-      return (
-        <div className="w-full h-screen bg-black flex justify-center items-center">
-          <p className="text-white w-80 h-80 loading loading-infinity loading-xl"></p>
-        </div>
-      );
-    }
-  }, [user]);
+  if (!user) {
+    return (
+      <div className="w-full h-screen bg-black flex justify-center items-center">
+        <p className="text-white w-80 h-80 loading loading-infinity loading-xl"></p>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full h-auto bg-black">
-      <div className="relative p-4 w-full max-w-2xl h-full mx-auto">
+      <div className="relative p-4 w-full h-full max-w-2xl mx-auto">
         <div className="relative p-4 rounded-lg shadow bg-gray-800 sm:p-5">
           <div className=" pb-4 mb-4 rounded-t border-b sm:mb-5 border-gray-600">
             <h3 className="text-lg font-semibold text-center text-white">

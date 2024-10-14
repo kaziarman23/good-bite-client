@@ -9,6 +9,7 @@ import Register from "../Pages/Authintication/Register/Register";
 import Login from "../Pages/Authintication/Login/Login";
 import NotFound from "../Pages/NotFound/NotFound";
 import FoodDetails from "../Pages/AvailableFoods/FoodDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,19 +26,35 @@ const router = createBrowserRouter([
       },
       {
         path: "/availableFoods/foodDetails/:id",
-        element: <FoodDetails />,
+        element: (
+          <PrivateRoute>
+            <FoodDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/addFood",
-        element: <AddFood />,
+        element: (
+          <PrivateRoute>
+            <AddFood />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myFoods",
-        element: <MyFoods />,
+        element: (
+          <PrivateRoute>
+            <MyFoods />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/requestFoods",
-        element: <RequestFoods />,
+        element: (
+          <PrivateRoute>
+            <RequestFoods />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
