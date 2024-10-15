@@ -22,13 +22,13 @@ const RequestFoods = () => {
   // handle delete
   const handleDelete = (id) => {
     Swal.fire({
-      title: "Did you recevie your requested food ?",
-      text: "You won't be able to revert this !",
+      title: "Did you receive your requested food?",
+      text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, i have it!",
+      confirmButtonText: "Yes, I have it!",
     }).then((result) => {
       if (result.isConfirmed) {
         axiosPublic
@@ -48,65 +48,61 @@ const RequestFoods = () => {
     });
   };
 
-  // hendling empty request's
+  // handling empty requests
   if (requestlist.length === 0) {
     return (
-      <div className="w-full h-screen bg-black flex justify-center items-center flex-col gap-3">
-        <h1 className="text-white text-2xl uppercase">
-          No request had been made till now from you !
+      <div className="w-full h-screen bg-black flex justify-center items-center flex-col gap-3 px-4">
+        <h1 className="text-white text-2xl uppercase text-center">
+          No request has been made till now from you!
         </h1>
         <Link to="/availableFoods">
-          <UseGreenToBlueBtn>Food Request</UseGreenToBlueBtn>
+          <UseGreenToBlueBtn>Request Food</UseGreenToBlueBtn>
         </Link>
       </div>
     );
   }
 
   return (
-    <div className="w-full h-screen bg-black">
-      <div className="w-4/5 h-full mx-auto p-4 bg-slate-950 text-white space-y-5">
-        <h5 className="text-left font-bold">
-          Mr.{user.displayName} total food requests are: {requestlist.length}
+    <div className="w-full min-h-screen bg-black">
+      <div className="w-full max-w-7xl mx-auto p-4 bg-slate-950 text-white space-y-5">
+        <h5 className="text-left font-bold text-lg">
+          Mr.{user.displayName}, your total food requests are: {requestlist.length}
         </h5>
         {/* table content */}
-        <div className="overflow-x-auto overflow-y-scroll">
-          <table className="table">
+        <div className="overflow-x-auto">
+          <table className="table table-auto w-full text-sm md:text-base">
             {/* head */}
             <thead className="text-white">
-              <tr>
+              <tr className="text-left">
                 <th>SL:</th>
-                <th>Doner Info.</th>
+                <th>Donor Info</th>
                 <th>Food Image</th>
                 <th>Food Name</th>
                 <th>Pickup Location</th>
                 <th>Quantity</th>
-                <th>Expire date</th>
+                <th>Expire Date</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {/* maping the array */}
-              {request.map((request, index) => (
-                <tr key={index}>
+              {/* mapping the array */}
+              {requestlist.map((request, index) => (
+                <tr key={index} className="border-t">
                   <th>{index + 1}</th>
                   <td>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col md:flex-row items-start md:items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle h-12 w-12">
                           <img
                             src={request.image}
                             alt={request.name}
-                            className="object-cover w-16 h-16 rounded-full"
+                            className="object-cover w-12 h-12 rounded-full"
                           />
                         </div>
                       </div>
                       <div>
                         <div className="font-bold">{request.name}</div>
-                        <div className="text-sm opacity-50">
-                          {request.email}
-                          <br />
-                          01234567895
-                        </div>
+                        <div className="text-sm opacity-50">{request.email}</div>
                       </div>
                     </div>
                   </td>
@@ -114,15 +110,14 @@ const RequestFoods = () => {
                     <img
                       src={request.foodImg}
                       alt={request.foodName}
-                      className="object-cover w-16 h-16 rounded-full"
+                      className="object-cover w-12 h-12 rounded-full"
                     />
                   </td>
-
                   <td>
-                    <h1 className="text-2xl">{request.foodName}</h1>
+                    <h1 className="text-md">{request.foodName}</h1>
                   </td>
                   <td>{request.pickupLocation}</td>
-                  <th>{request.quantity}</th>
+                  <td>{request.quantity}</td>
                   <td>{request.expireDate}</td>
                   <td>
                     <UseGreenToBlueBtn

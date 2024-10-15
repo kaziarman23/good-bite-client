@@ -28,7 +28,7 @@ const FoodDetails = () => {
   const handleFoodRequest = () => {
     Swal.fire({
       title: "Are you sure?",
-      text: "You want to send request for this food !",
+      text: "You want to send request for this food!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -76,11 +76,11 @@ const FoodDetails = () => {
     });
   };
 
-  // handling Unavailable requist
+  // handling Unavailable request
   const handleUnavailableReq = () => {
     Swal.fire({
       title: "Error!",
-      text: "This food is unavailable right now !",
+      text: "This food is unavailable right now!",
       icon: "error",
       background: "black",
       color: "white",
@@ -90,31 +90,33 @@ const FoodDetails = () => {
   };
 
   return (
-    <div className="w-full h-[579px] flex justify-center items-center bg-black">
-      <div className="w-4/5 h-[520px] gap-2 bg-slate-950 flex flex-col justify-center items-center text-white">
+    <div className="w-full h-full flex justify-center items-center bg-black p-4">
+      <div className="w-full max-w-4xl gap-2 bg-slate-950 flex flex-col justify-center items-center text-white p-5 rounded-xl">
         <h1 className="font-bold text-2xl p-2">Food Details</h1>
         {/* food details */}
-        <div className="w-full h-96 flex justify-center items-center">
-          <div className="w-1/2 h-full flex justify-center items-center">
+        <div className="w-full flex flex-col md:flex-row justify-center items-center md:space-x-5">
+          <div className="w-full md:w-1/2 h-full flex justify-center items-center mb-4 md:mb-0">
             <img
               src={foodItem.foodImg}
               alt={foodItem.foodName}
-              className="object-cover w-2/3 h-4/5 rounded-xl"
+              className="object-cover w-full h-72 md:h-96 rounded-xl"
             />
           </div>
-          <div className="w-1/2 text-left ml-3 space-y-3 text-white">
-            <h1 className="text-xl font-bold">Doner Name: {foodItem.name}</h1>
-            <h1 className="text-xl">Food Name: {foodItem.foodName}</h1>
-            <h3 className="text-xl">Quantity: {foodItem.quantity}</h3>
-            <p className="text-xl">Expire Date: {foodItem.expireDate}</p>
-            <p className="text-xl">
+          <div className="w-full md:w-1/2 text-left space-y-3 text-white">
+            <h1 className="text-lg md:text-xl font-bold">
+              Doner Name: {foodItem.name}
+            </h1>
+            <h1 className="text-lg md:text-xl">Food Name: {foodItem.foodName}</h1>
+            <h3 className="text-lg md:text-xl">Quantity: {foodItem.quantity}</h3>
+            <p className="text-lg md:text-xl">Expire Date: {foodItem.expireDate}</p>
+            <p className="text-lg md:text-xl">
               Pickup Location: {foodItem.pickupLocation}
             </p>
-            <p className="text-xl">Status: {foodItem.status}</p>
-            <p className="text-xl">description: {foodItem.description}</p>
+            <p className="text-lg md:text-xl">Status: {foodItem.status}</p>
+            <p className="text-lg md:text-xl">Description: {foodItem.description}</p>
           </div>
         </div>
-        <div className="w-full gap-5 mr-5 p-4 flex justify-end items-center">
+        <div className="w-full gap-5 p-4 flex flex-col md:flex-row justify-end items-center">
           <Link to="/availableFoods">
             <UsePurpleToPinkBtn>Back</UsePurpleToPinkBtn>
           </Link>

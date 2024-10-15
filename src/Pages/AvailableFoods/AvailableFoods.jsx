@@ -22,7 +22,8 @@ const AvailableFoods = () => {
         </p>
 
         {/* card's content */}
-        <div className="grid gap-5 my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {/* <div className="grid gap-5 my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"> */}
+        <div className="grid gap-5 my-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
           {food.map((food, index) => (
             <UseFoodCard key={index} food={food}></UseFoodCard>
           ))}

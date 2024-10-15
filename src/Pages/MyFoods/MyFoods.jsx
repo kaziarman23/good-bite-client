@@ -50,9 +50,9 @@ const MyFoods = () => {
 
   if (foodlist.length === 0) {
     return (
-      <div className="w-full h-screen bg-black flex justify-center items-center flex-col gap-3">
-        <h1 className="text-white text-2xl uppercase">
-          No food item donated till now From you !
+      <div className="w-full h-screen bg-black flex justify-center items-center flex-col gap-3 p-4">
+        <h1 className="text-white text-2xl text-center uppercase">
+          No food item donated till now by you!
         </h1>
         <Link to="/addFood">
           <UseGreenToBlueBtn>Add Food</UseGreenToBlueBtn>
@@ -62,55 +62,55 @@ const MyFoods = () => {
   }
 
   return (
-    <div className="w-full h-screen bg-black">
-      <div className="w-4/5 h-full mx-auto p-4 bg-slate-950 text-white space-y-5">
+    <div className="w-full h-full bg-black p-4">
+      <div className="w-full max-w-6xl mx-auto bg-slate-950 text-white space-y-5 p-5 rounded-xl">
         <h1 className="text-2xl text-left font-bold">
-          Mr.{user.displayName} Food List.
+          Mr. {user.displayName}'s Food List.
         </h1>
         <h5 className="text-left font-bold">
-          Total Added Foods are: {foodlist.length}
+          Total Added Foods: {foodlist.length}
         </h5>
         {/* table content */}
-        <div className="overflow-x-auto overflow-y-scroll">
-          <table className="table ">
+        <div className="overflow-x-auto">
+          <table className="table-auto w-full">
             {/* head */}
             <thead className="text-white">
               <tr>
-                <th>SL:</th>
-                <th>Food Image</th>
-                <th>Food Name</th>
-                <th>Food Quantity</th>
-                <th>Pickup Location</th>
-                <th>Expire date</th>
-                <th>Actions</th>
+                <th className="p-3">SL:</th>
+                <th className="p-3">Food Image</th>
+                <th className="p-3">Food Name</th>
+                <th className="p-3">Food Quantity</th>
+                <th className="p-3">Pickup Location</th>
+                <th className="p-3">Expire Date</th>
+                <th className="p-3">Actions</th>
               </tr>
             </thead>
             <tbody>
               {/* map */}
               {foodlist.map((food, index) => (
-                <tr key={index}>
-                  <th>{index + 1}</th>
-                  <td>
+                <tr key={index} className="border-t border-slate-700">
+                  <th className="p-3">{index + 1}</th>
+                  <td className="p-3">
                     <img
                       src={food.foodImg}
                       alt={food.foodName}
                       className="object-cover w-16 h-16 rounded-full"
                     />
                   </td>
-                  <td>
+                  <td className="p-3">
                     <h1>{food.foodName}</h1>
                   </td>
-                  <td>{food.quantity}</td>
-                  <td>{food.pickupLocation}</td>
-                  <td>{food.expireDate}</td>
-                  <th>
+                  <td className="p-3">{food.quantity}</td>
+                  <td className="p-3">{food.pickupLocation}</td>
+                  <td className="p-3">{food.expireDate}</td>
+                  <td className="p-3 space-y-2 md:space-y-0 md:space-x-2">
                     <Link to={`/updateFood/${food._id}`}>
                       <UseGreenToBlueBtn>Update</UseGreenToBlueBtn>
                     </Link>
                     <UseOutletRedBtn onClick={() => handleDeleteFood(food._id)}>
                       Delete
                     </UseOutletRedBtn>
-                  </th>
+                  </td>
                 </tr>
               ))}
             </tbody>

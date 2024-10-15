@@ -23,15 +23,15 @@ const UpdateFood = () => {
       quantity: data.quantity,
       pickupLocation: data.pickupLocation,
     };
-    // sending updatedata to server
+    // sending updated data to server
     axiosPublic
       .patch(`/foods/${loadedData._id}`, updateInfo)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
-          // reseting the form
+          // resetting the form
           reset();
 
-          // showing success alert and returning previous page
+          // showing success alert and returning to previous page
           navigate(-1);
           Swal.fire({
             title: "Success",
@@ -48,18 +48,22 @@ const UpdateFood = () => {
 
   // handle cancel
   const handleCancel = () => {
-    // reseting the form
+    // resetting the form
     reset();
-    // returning previous page
+    // returning to previous page
     navigate(-1);
   };
 
   return (
-    <div className="relative p-4 w-full h-auto bg-black ">
-      <div className="relative w-3/5 h-full p-4 mx-auto text-white rounded-lg shadow bg-gray-800 sm:p-5">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <h1 className="text-2xl font-bold text-center p-3">Update Item</h1>
-          <div className="grid gap-4 mb-4 sm:grid-cols-2">
+    <div className="relative p-4 w-full min-h-screen bg-black flex justify-center items-center">
+      <div className="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-lg">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <h1 className="text-2xl font-bold text-center text-white mb-6">
+            Update Food Item
+          </h1>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {/* Food Name */}
             <div>
               <label
                 htmlFor="foodName"
@@ -69,32 +73,32 @@ const UpdateFood = () => {
               </label>
               <input
                 type="text"
-                name="foodName"
                 id="foodName"
-                className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
-                placeholder=""
+                className="w-full p-2.5 rounded-lg bg-gray-700 border border-gray-600 text-sm placeholder-gray-400 text-white"
                 defaultValue={loadedData.foodName}
                 {...register("foodName")}
               />
             </div>
+
+            {/* Quantity */}
             <div>
               <label
                 htmlFor="quantity"
                 className="block mb-2 text-sm font-medium text-white"
               >
-                Quantit
+                Quantity
               </label>
               <input
                 type="text"
-                name="quantity"
                 id="quantity"
-                className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
-                placeholder=""
+                className="w-full p-2.5 rounded-lg bg-gray-700 border border-gray-600 text-sm placeholder-gray-400 text-white"
                 defaultValue={loadedData.quantity}
                 {...register("quantity")}
               />
             </div>
-            <div className="col-span-2">
+
+            {/* Pickup Location */}
+            <div className="sm:col-span-2">
               <label
                 htmlFor="pickupLocation"
                 className="block mb-2 text-sm font-medium text-white"
@@ -103,27 +107,27 @@ const UpdateFood = () => {
               </label>
               <input
                 type="text"
-                name="pickupLocation"
                 id="pickupLocation"
-                className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
-                placeholder=""
+                className="w-full p-2.5 rounded-lg bg-gray-700 border border-gray-600 text-sm placeholder-gray-400 text-white"
                 defaultValue={loadedData.pickupLocation}
                 {...register("pickupLocation")}
               />
             </div>
           </div>
-          <div className="flex items-center space-x-4">
+
+          {/* Buttons */}
+          <div className="flex justify-end space-x-4 mt-6">
             <input
               type="submit"
-              value="Update product"
-              className="btn border hover:bg-green-500 bg-blue-500 hover:text-white text-white"
+              value="Update Product"
+              className="px-4 py-2 rounded-lg bg-blue-500 text-white hover:bg-green-500 transition duration-300"
             />
             <button
               onClick={handleCancel}
               type="button"
-              className="btn hover:bg-red-700 bg-orange-500 hover:text-black text-white hover:border-red-500"
+              className="px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-red-700 transition duration-300"
             >
-              Cencel
+              Cancel
             </button>
           </div>
         </form>
