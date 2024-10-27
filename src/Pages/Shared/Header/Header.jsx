@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import UseOutletRedBtn from "../../../CusmotHooks/UseOutletRedBtn";
 import UseUnderlineBtn from "../../../CusmotHooks/UseUnderlineBtn";
 import UseBorderYBtn from "../../../CusmotHooks/UseBorderYBtn";
+import { TbBrandGumroad } from "react-icons/tb";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -38,27 +39,31 @@ const Header = () => {
     <>
       <NavLink to="/">
         <UseUnderlineBtn>
-          <li className="p-2 font-bold text-white text-sm">Home</li>
+          <li className="p-4 font-bold text-white text-base">Home</li>
         </UseUnderlineBtn>
       </NavLink>
       <NavLink to="/availableFoods">
         <UseUnderlineBtn>
-          <li className="p-2 font-bold text-white text-sm">Available Foods</li>
+          <li className="p-4 font-bold text-white text-base">
+            Available Foods
+          </li>
         </UseUnderlineBtn>
       </NavLink>
       <NavLink to="/addFood">
         <UseUnderlineBtn>
-          <li className="p-2 font-bold text-white text-sm">Add Food</li>
+          <li className="p-4 font-bold text-white text-base">Add Food</li>
         </UseUnderlineBtn>
       </NavLink>
       <NavLink to="/myFoods">
         <UseUnderlineBtn>
-          <li className="p-2 font-bold text-white text-sm">My Foods</li>
+          <li className="p-4 font-bold text-white text-base">My Foods</li>
         </UseUnderlineBtn>
       </NavLink>
       <NavLink to="/requestFoods">
         <UseUnderlineBtn>
-          <li className="p-2 font-bold text-white text-sm">My Food Requests</li>
+          <li className="p-4 font-bold text-white text-base">
+            My Food Requests
+          </li>
         </UseUnderlineBtn>
       </NavLink>
     </>
@@ -91,7 +96,14 @@ const Header = () => {
             {navlinks}
           </ul>
         </div>
-        <UseBorderYBtn title="Home Page">Good Bite</UseBorderYBtn>
+        <UseBorderYBtn
+          title="Home Page"
+          className="flex items-center gap-2 whitespace-nowrap p-2 sm:p-4"
+          size="text-xs sm:text-sm md:text-xl"
+        >
+          <TbBrandGumroad />
+          Good Bite
+        </UseBorderYBtn>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navlinks}</ul>

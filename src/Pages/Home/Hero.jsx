@@ -1,11 +1,16 @@
 const Hero = () => {
   return (
-    <div className="w-full h-[741px] flex flex-col justify-center items-center bg-black xl:h-screen xl:flex-row">
-      <div className="w-full h-full p-3 flex justify-center items-center md:p-0 xl:w-1/2">
+    <div className="w-full h-full flex flex-col justify-center items-center bg-black lg:h-screen xl:flex-row">
+      <div className="w-full h-full p-3 flex gap-3 justify-center items-center md:p-0 xl:w-1/2">
         <img
-          src="/heroImage.png"
-          alt="hero section image"
-          className="object-cover w-1/2 h-1/2 rounded-xl"
+          src="https://i.pinimg.com/236x/81/7f/e3/817fe389dd32aa91aab4e0255cafc440.jpg"
+          alt="hero section first img"
+          className="object-cover w-1/6 h-1/2 rounded-xl"
+        />
+        <img
+          src="https://i.pinimg.com/236x/68/99/f9/6899f9aa6b3d2817a563de22f4a6d607.jpg"
+          alt="hero section second img"
+          className="object-cover w-2/6 h-1/2 rounded-xl"
         />
       </div>
       <div className="w-full space-y-5 p-3 text-white flex text-left flex-col xl:w-1/2">

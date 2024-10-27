@@ -5,23 +5,41 @@
   background: none;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
+  padding: 8px 12px;
 }
 
-.borderYBtn::before {
-  margin-left: auto;
+.borderContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.borderYBtn::after,
-.borderYBtn::before {
+.borderYBtn::before,
+.borderYBtn::after {
   content: "";
-  width: 0%;
+  position: absolute;
   height: 2px;
   background: white;
-  display: block;
-  transition: 0.5s;
+  width: 0%; /* Initial state, no border */
+  transition: width 0.5s ease; /* Smooth expansion */
 }
 
-.borderYBtn:hover::after,
+.borderYBtn::before {
+  top: 0; /* Position at top */
+  left: 0; /* Start expanding from left to right */
+}
+
+.borderYBtn::after {
+  bottom: 0; /* Position at bottom */
+  right: 0; /* Start expanding from right to left */
+}
+
 .borderYBtn:hover::before {
-  width: 100%;
+  width: 100%; /* Expand to full width from left to right */
+}
+
+.borderYBtn:hover::after {
+  width: 100%; /* Expand to full width from right to left */
 }

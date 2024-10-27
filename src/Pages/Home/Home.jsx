@@ -1,11 +1,11 @@
 import Hero from "./Hero";
 import AboutUs from "./AboutUs";
-import Quistion from "./Quistion";
 import Why from "./Why";
 import OurImpact from "./OurImpact";
 import Investors from "./Investors";
 import Reviews from "./Reviews";
 import OurFocus from "./OurFocus";
+import Statistics from "./Statistics";
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
       <hr className="w-4/5 mx-auto" />
       <AboutUs />
       <hr className="w-4/5 mx-auto" />
-      <Quistion />
+      <Statistics />
       <hr className="w-4/5 mx-auto" />
       <Why />
       <OurFocus />

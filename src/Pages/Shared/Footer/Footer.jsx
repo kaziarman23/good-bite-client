@@ -1,4 +1,5 @@
 import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
+import { TbBrandGumroad } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -20,13 +21,9 @@ const Footer = () => {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <h1 className="flex items-center">
-              <Link to="/" className="flex">
-                <img
-                  src="/Logo.png"
-                  alt="logo for footer"
-                  className="w-8 h-8"
-                />
-                <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
+              <Link to="/" className="flex items-center text-white">
+                <TbBrandGumroad className="w-8 h-8 mr-2" />
+                <span className="self-center text-2xl font-semibold whitespace-nowrap">
                   Good Bite
                 </span>
               </Link>

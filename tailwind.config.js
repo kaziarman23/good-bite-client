@@ -8,17 +8,6 @@ export default {
   },
   plugins: [flowbite.plugin({ charts: true }), require("daisyui")],
   daisyui: {
-    themes: [
-      {
-        mytheme: {
-          primary: "#3490dc",
-          secondary: "#ffed4a",
-          accent: "#38c172",
-          neutral: "#f4f4f9",
-          "base-100": "#ffffff",
-          // Add or override other color keys
-        },
-      },
-    ],
+    themes: [],
   },
 };
