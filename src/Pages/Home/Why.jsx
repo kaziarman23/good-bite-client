@@ -5,7 +5,7 @@ const Why = () => {
         {/* <div className="w-1/2 h-full flex justify-center items-center"> */}
         <div className="w-full h-full flex justify-center items-center xl:w-1/2">
           <img
-            src="https://i.pinimg.com/564x/c2/cb/99/c2cb991efab328100bc9f692e15c6368.jpg"
+            src="/FoodWeast.png"
             alt="question section image"
             className="w-full h-[50%] object-cover rounded-xl xl:w-1/2"
           />

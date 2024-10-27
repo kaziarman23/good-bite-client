@@ -3,9 +3,9 @@ const Hero = () => {
     <div className="w-full h-[741px] flex flex-col justify-center items-center bg-black xl:h-screen xl:flex-row">
       <div className="w-full h-full p-3 flex justify-center items-center md:p-0 xl:w-1/2">
         <img
-          src="https://i.pinimg.com/564x/c2/c1/15/c2c1158b5d2b0de3e32fb98c16db4849.jpg"
+          src="/heroImage.png"
           alt="hero section image"
-          className="object-cover rounded-xl"
+          className="object-cover w-1/2 h-1/2 rounded-xl"
         />
       </div>
       <div className="w-full space-y-5 p-3 text-white flex text-left flex-col xl:w-1/2">
