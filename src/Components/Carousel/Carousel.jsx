@@ -41,10 +41,11 @@ const Carousel = () => {
         delay: 2000,
         disableOnInteraction: false,
       }}
+      loop={true} 
       breakpoints={{
         // When the window width is >= 640px
         640: {
-          slidesPerView: 1,
+          slidesPerView: 2,
           spaceBetween: 20,
         },
         // When the window width is >= 768px
@@ -59,8 +60,8 @@ const Carousel = () => {
         },
         // When the window width is >= 1280px
         1280: {
-          slidesPerView: 4,
-          spaceBetween: 40,
+          slidesPerView: 2,
+          spaceBetween: 10,
         },
       }}
       modules={[Pagination, Autoplay]}

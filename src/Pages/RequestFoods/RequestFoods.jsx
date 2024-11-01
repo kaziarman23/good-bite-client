@@ -52,7 +52,7 @@ const RequestFoods = () => {
   if (requestlist.length === 0) {
     return (
       <div className="w-full h-screen bg-black flex justify-center items-center flex-col gap-3 px-4">
-        <h1 className="text-white text-2xl uppercase text-center">
+        <h1 className="text-white text-sm uppercase text-center md:text-2xl ">
           No request has been made till now from you!
         </h1>
         <Link to="/availableFoods">
@@ -63,8 +63,8 @@ const RequestFoods = () => {
   }
 
   return (
-    <div className="w-full min-h-screen bg-black">
-      <div className="w-full max-w-7xl mx-auto p-4 bg-slate-950 text-white space-y-5">
+    <div className="w-full min-h-screen bg-black overflow-hidden">
+      <div className="w-full max-w-7xl min-h-full mt-20 mx-auto p-4 bg-slate-950 text-white space-y-5">
         <h5 className="text-left font-bold text-lg">
           Mr.{user.displayName}, your total food requests are: {requestlist.length}
         </h5>

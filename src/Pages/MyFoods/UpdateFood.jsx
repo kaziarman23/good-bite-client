@@ -120,12 +120,12 @@ const UpdateFood = () => {
             <input
               type="submit"
               value="Update Product"
-              className="px-4 py-2 rounded-lg bg-blue-500 text-white hover:bg-green-500 transition duration-300"
+              className="btn border-blue-500  bg-black text-white hover:border-blue-500 hover:bg-blue-600 md:text-base"
             />
             <button
               onClick={handleCancel}
               type="button"
-              className="px-4 py-2 rounded-lg bg-orange-500 text-white hover:bg-red-700 transition duration-300"
+              className="btn border-red-500  bg-black text-white hover:border-red-700 hover:bg-red-700 md:text-base"
             >
               Cancel
             </button>

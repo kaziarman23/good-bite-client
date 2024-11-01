@@ -29,19 +29,19 @@ const Investors = () => {
   ];
 
   return (
-    <div className="w-4/5 h-full my-5 mx-auto" title="Sponsors">
-      <Marquee 
-      speed={80}
-      >
-        {logos.map((logo) => (
-          <img
-            key={logo.id}
-            src={logo.image}
-            alt={logo.name}
-            className="w-14 h-14 mx-5"
-          />
-        ))}
-      </Marquee>
+    <div className="w-full h-full bg-black overflow-hidden">
+      <div className="w-4/5 h-full my-5 border-y-2 p-3 mx-auto" title="Sponsors">
+        <Marquee speed={80}>
+          {logos.map((logo) => (
+            <img
+              key={logo.id}
+              src={logo.image}
+              alt={logo.name}
+              className="w-14 h-14 mx-5"
+            />
+          ))}
+        </Marquee>
+      </div>
     </div>
   );
 };

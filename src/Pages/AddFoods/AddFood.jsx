@@ -64,8 +64,8 @@ const AddFood = () => {
   }
 
   return (
-    <div className="w-full h-auto bg-black">
-      <div className="relative p-4 w-full h-full max-w-2xl mx-auto">
+    <div className="w-full h-auto bg-black overflow-hidden">
+      <div className="relative p-4 w-full h-full max-w-2xl mt-24 mx-auto">
         <div className="relative p-4 rounded-lg shadow bg-gray-800 sm:p-5">
           <div className=" pb-4 mb-4 rounded-t border-b sm:mb-5 border-gray-600">
             <h3 className="text-lg font-semibold text-center text-white">

@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
 import UseFood from "../../CusmotHooks/UseFood";
-import UseOutletRedBtn from "../../CusmotHooks/UseOutletRedBtn";
 import UseGreenToBlueBtn from "../../CusmotHooks/UseGreenToBlueBtn";
 import UseAxios from "../../CusmotHooks/UseAxios";
 import Swal from "sweetalert2";
@@ -62,10 +61,10 @@ const MyFoods = () => {
   }
 
   return (
-    <div className="w-full h-full bg-black p-4">
-      <div className="w-full max-w-6xl mx-auto bg-slate-950 text-white space-y-5 p-5 rounded-xl">
+    <div className="w-full min-h-screen bg-black p-4">
+      <div className="w-full max-w-6xl min-h-full mt-20 mx-auto bg-slate-950 text-white space-y-5 p-5 rounded-xl">
         <h1 className="text-2xl text-left font-bold">
-          Mr. {user.displayName}'s Food List.
+          Mr. {user.displayName}&#39;s Food List.
         </h1>
         <h5 className="text-left font-bold">
           Total Added Foods: {foodlist.length}
@@ -105,11 +104,16 @@ const MyFoods = () => {
                   <td className="p-3">{food.expireDate}</td>
                   <td className="p-3 space-y-2 md:space-y-0 md:space-x-2">
                     <Link to={`/updateFood/${food._id}`}>
-                      <UseGreenToBlueBtn>Update</UseGreenToBlueBtn>
+                      <button className="btn border-yellow-500  bg-black text-white hover:border-yellow-500 hover:bg-yellow-500 md:text-base">
+                        Update
+                      </button>
                     </Link>
-                    <UseOutletRedBtn onClick={() => handleDeleteFood(food._id)}>
+                    <button
+                      className="btn border-red-500  bg-black text-white hover:border-red-700 hover:bg-red-700 md:text-base"
+                      onClick={() => handleDeleteFood(food._id)}
+                    >
                       Delete
-                    </UseOutletRedBtn>
+                    </button>
                   </td>
                 </tr>
               ))}

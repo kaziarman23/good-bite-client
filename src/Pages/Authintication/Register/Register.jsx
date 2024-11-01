@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { VscGithubInverted } from "react-icons/vsc";
@@ -8,7 +8,9 @@ import Swal from "sweetalert2";
 import UseAxios from "../../../CusmotHooks/UseAxios";
 
 const Register = () => {
+  // state
   const navigate = useNavigate();
+  const [registerError, setRegisterError] = useState("");
 
   // Context api
   const { createUser, updateUser, googleAuthintication, githubAuthintication } =
@@ -26,43 +28,59 @@ const Register = () => {
   // Handle Submit
   const onSubmit = (data) => {
     // creating user with email
-    createUser(data.email, data.password).then(() => {
-      // updating user
-      updateUser(data.name, data.photo).then(() => {
-        const userInfo = {
-          name: data.name,
-          email: data.email,
-          photo: data.photo,
-        };
-        axiosPublic
-          .post("/users", userInfo)
-          .then((res) => {
-            console.log(res);
-            if (res.data.insertedId) {
-              // showing alert and navigating the user to home page
-              reset();
-              navigate("/");
+    createUser(data.email, data.password)
+      .then(() => {
+        // updating user
+        updateUser(data.name, data.photo).then(() => {
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+            photo: data.photo,
+          };
+          axiosPublic
+            .post("/users", userInfo)
+            .then((res) => {
+              console.log(res, "is working");
+              if (res.data.insertedId) {
+                // clear the error state
+                setRegisterError("");
+                // clearing the form and navigating the user to home page
+                reset();
+                navigate("/");
 
-              const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.onmouseenter = Swal.stopTimer;
-                  toast.onmouseleave = Swal.resumeTimer;
-                },
-              });
-              Toast.fire({
-                icon: "success",
-                title: "Registation successfully",
-              });
-            }
-          })
-          .catch((error) => console.log(error.message, error));
+                // showing alert
+                const Toast = Swal.mixin({
+                  toast: true,
+                  position: "top-end",
+                  showConfirmButton: false,
+                  timer: 3000,
+                  timerProgressBar: true,
+                  didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                  },
+                });
+                Toast.fire({
+                  icon: "success",
+                  title: "Registation successfully",
+                });
+              }
+            })
+            .catch((error) => {
+              console.log(error.message, error);
+              setRegisterError(error.message);
+            });
+        });
+      })
+      .catch((error) => {
+        if (error.code === "auth/email-already-in-use") {
+          setRegisterError(
+            "This email is already in use. Please use a different email or log in."
+          );
+        } else {
+          setRegisterError("An unexpected error occurred. Please try again.");
+        }
       });
-    });
   };
 
   // Register with Google
@@ -77,10 +95,14 @@ const Register = () => {
         .post("/users", userInfo)
         .then((res) => {
           if (res.data.insertedId) {
-            // showing alert and navigating the user to home page
+            // clearing the error state
+            setRegisterError("");
+
+            // reseting the form and navigating the user to home page
             reset();
             navigate("/");
 
+            // showing alert
             const Toast = Swal.mixin({
               toast: true,
               position: "top-end",
@@ -98,7 +120,7 @@ const Register = () => {
             });
           }
         })
-        .catch((error) => console.log(error));
+        .catch((error) => setRegisterError(error.message));
     });
   };
 
@@ -115,10 +137,13 @@ const Register = () => {
         .then((res) => {
           console.log(res);
           if (res.data.insertedId) {
-            // showing alert and navigating the user to home page
+            // clearing the error state
+            setRegisterError("");
+            // clearing the form and navigating the user to home page
             reset();
             navigate("/");
 
+            // showing alert
             const Toast = Swal.mixin({
               toast: true,
               position: "top-end",
@@ -136,13 +161,13 @@ const Register = () => {
             });
           }
         })
-        .catch((error) => console.log(error));
+        .catch((error) => setRegisterError(error.message));
     });
   };
 
   return (
-    <div className="w-full h-screen bg-gray-950 flex justify-center items-center">
-      <div className="w-96 h-auto bg-black p-5 rounded-xl">
+    <div className="w-full h-screen bg-slate-950 flex justify-center items-center">
+      <div className="w-96 h-auto bg-black mt-10 p-3 rounded-xl">
         <form onSubmit={handleSubmit(onSubmit)} className="w-full mx-auto">
           <h1 className="text-white text-center font-bold text-2xl">
             Register Now
@@ -254,32 +279,37 @@ const Register = () => {
           </div>
           <button
             type="submit"
-            className="w-full text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm  sm:w-auto lg:w-full px-5 py-3 text-center bg-blue-600 hover:bg-green-500 hover:text-black focus:ring-green-500"
+            className="w-full font-bold border-2 rounded-lg text-sm px-5 py-3 text-center text-white border-blue-600 bg-blue-600 hover:bg-black hover:text-blue-600 hover:border-blue-600 sm:w-auto lg:w-full"
           >
             Register
           </button>
           <p className="text-white my-3">
             Already have an account? Please{" "}
             <Link to="/login">
-              <span className="hover:underline hover:text-blue-500">Login</span>
+              <span className="hover:underline text-blue-500 font-bold">
+                Login
+              </span>
             </Link>
           </p>
           <p className="text-white my-3">or Register With</p>
           <div className="flex justify-center items-center gap-5">
             <button
               onClick={handleGoogleRegister}
-              className="btn hover:text-white hover:bg-black"
+              className="btn text-white hover:text-black hover:bg-[#d4d8d8]"
             >
               <FcGoogle className="w-6 h-6" /> Google
             </button>
             <button
               onClick={handleGithubRegister}
-              className="btn hover:text-white hover:bg-black"
+              className="btn text-white hover:text-black hover:bg-[#d4d8d8]"
             >
               <VscGithubInverted className="w-6 h-6" />
               Github
             </button>
           </div>
+          {registerError && (
+            <p className="text-red-600 text-center text-sm my-5">{registerError}</p>
+          )}
         </form>
       </div>
     </div>

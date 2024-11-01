@@ -7,7 +7,7 @@ const AvailableFoods = () => {
 
   return (
     <div className="bg-black text-white w-full h-full overflow-hidden">
-      <div className="w-4/5 h-full mx-auto">
+      <div className="w-full h-full p-3 mx-auto mt-20 lg:w-4/5 lg:p-0">
         <h1 className="text-center font-bold text-2xl p-2">GOOD BITE FOODS</h1>
         <p>
           we believe that good food should never go to waste. In this section,
@@ -22,7 +22,7 @@ const AvailableFoods = () => {
         </p>
 
         {/* card's content */}
-        <div className="grid gap-5 my-10 grid-cols-1 mx-auto sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid place-items-center gap-5 my-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
           {food.map((food, index) => (
             <UseFoodCard key={index} food={food}></UseFoodCard>
           ))}

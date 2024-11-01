@@ -3,12 +3,13 @@ import { FcGoogle } from "react-icons/fc";
 import { VscGithubInverted } from "react-icons/vsc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Auth/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [loginError, setLoginError] = useState("");
 
   // Context api
   const { loginUser, googleAuthintication, githubAuthintication } =
@@ -24,84 +25,99 @@ const Login = () => {
 
   // Login with Email
   const onSubmit = (data) => {
-    loginUser(data.email, data.password).then(() => {
-      // showing alert and reseting the form
-      reset();
+    loginUser(data.email, data.password)
+      .then(() => {
+        // showing alert and reseting the form
+        reset();
 
-      // navigating the user
-      const redirectTo = location?.state?.from || "/";
-      navigate(redirectTo);
+        // navigating the user
+        const redirectTo = location?.state?.from || "/";
+        navigate(redirectTo);
 
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: "logged in successfully",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoginError(error.message);
       });
-      Toast.fire({
-        icon: "success",
-        title: "logged in successfully",
-      });
-    });
   };
 
   // Login with Google
   const handleGoogleLogin = () => {
-    googleAuthintication().then(() => {
-      // navigating the user
-      const redirectTo = location?.state?.from || "/";
-      navigate(redirectTo);
+    googleAuthintication()
+      .then(() => {
+        // navigating the user
+        const redirectTo = location?.state?.from || "/";
+        navigate(redirectTo);
 
-      // showing alert and reseting the form
-      reset();
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
+        // showing alert and reseting the form
+        reset();
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Logged in successfully",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoginError(error.message);
       });
-      Toast.fire({
-        icon: "success",
-        title: "Logged in successfully",
-      });
-    });
   };
 
   // Login with Github
   const handleGithubLogin = () => {
-    githubAuthintication().then(() => {
-      // navigating the user
-      const redirectTo = location?.state?.from || "/";
-      navigate(redirectTo);
+    githubAuthintication()
+      .then(() => {
+        // navigating the user
+        const redirectTo = location?.state?.from || "/";
+        navigate(redirectTo);
 
-      // showing alert and reseting the form
-      reset();
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
+        // showing alert and reseting the form
+        reset();
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Logged in successfully",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoginError(error.message);
       });
-      Toast.fire({
-        icon: "success",
-        title: "Logged in successfully",
-      });
-    });
   };
 
   return (
@@ -181,14 +197,14 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm  sm:w-auto lg:w-full px-5 py-3 text-center bg-blue-600 hover:bg-green-500 hover:text-black focus:ring-green-500"
+            className="w-full font-bold border-2 rounded-lg text-sm px-5 py-3 text-center text-white border-blue-600 bg-blue-600 hover:bg-black hover:text-blue-600 hover:border-blue-600 sm:w-auto lg:w-full"
           >
             Login
           </button>
           <p className="text-white my-3">
             Did&#39;t have an account? Please{" "}
             <Link to="/register">
-              <span className="hover:underline hover:text-blue-500">
+              <span className="hover:underline text-blue-500 font-bold">
                 Register
               </span>
             </Link>
@@ -197,18 +213,23 @@ const Login = () => {
           <div className="flex justify-center items-center gap-5">
             <button
               onClick={handleGoogleLogin}
-              className="btn hover:text-white hover:bg-black"
+              className="btn text-white hover:text-black hover:bg-[#d4d8d8]"
             >
               <FcGoogle className="w-6 h-6" /> Google
             </button>
             <button
               onClick={handleGithubLogin}
-              className="btn hover:text-white hover:bg-black"
+              className="btn text-white hover:text-black hover:bg-[#d4d8d8]"
             >
               <VscGithubInverted className="w-6 h-6" />
               Github
             </button>
           </div>
+          {loginError && (
+            <p className="text-red-600 text-center text-sm my-5">
+              {loginError}
+            </p>
+          )}
         </form>
       </div>
     </div>

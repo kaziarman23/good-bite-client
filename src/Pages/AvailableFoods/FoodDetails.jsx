@@ -91,7 +91,7 @@ const FoodDetails = () => {
 
   return (
     <div className="w-full h-full flex justify-center items-center bg-black p-4">
-      <div className="w-full max-w-4xl gap-2 bg-slate-950 flex flex-col justify-center items-center text-white p-5 rounded-xl">
+      <div className="w-full max-w-4xl h-full mt-20 gap-2 bg-[#0c0c05] flex flex-col justify-center items-center text-white p-5 rounded-xl">
         <h1 className="font-bold text-2xl p-2">Food Details</h1>
         {/* food details */}
         <div className="w-full flex flex-col md:flex-row justify-center items-center md:space-x-5">
@@ -116,7 +116,7 @@ const FoodDetails = () => {
             <p className="text-lg md:text-xl">Description: {foodItem.description}</p>
           </div>
         </div>
-        <div className="w-full gap-5 p-4 flex flex-col md:flex-row justify-end items-center">
+        <div className="w-full gap-5 p-4 flex  md:flex-row justify-end items-center">
           <Link to="/availableFoods">
             <UsePurpleToPinkBtn>Back</UsePurpleToPinkBtn>
           </Link>

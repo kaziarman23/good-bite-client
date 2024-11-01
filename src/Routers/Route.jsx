@@ -56,7 +56,8 @@ const router = createBrowserRouter([
             <UpdateFood />
           </PrivateRoute>
         ),
-        loader: ({params}) => fetch(`https://good-bite-server.vercel.app/foods/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://good-bite-server.vercel.app/foods/${params.id}`),
       },
       {
         path: "/requestFoods",
