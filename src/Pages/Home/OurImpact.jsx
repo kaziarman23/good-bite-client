@@ -2,7 +2,7 @@ import PieChart from "../../Components/PieChart/PieChart";
 
 const OurImpact = () => {
   return (
-    <div className="w-4/5 h-[4350px] mx-auto text-white space-y-5 sm:h-[2800px] md:h-[2600px] lg:h-[2300px] xl:h-[1600px]">
+    <div className="w-4/5 h-full mx-auto text-white space-y-5">
       {/* title content */}
       <div>
         <h1 className="text-2xl text-center font-bold">Our Impact</h1>
