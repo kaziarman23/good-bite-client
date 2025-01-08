@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useLoaderData, useNavigate } from "react-router";
 import UseAxios from "../../CusmotHooks/UseAxios";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const UpdateFood = () => {
   // loading data
@@ -16,8 +16,6 @@ const UpdateFood = () => {
 
   // handle submit
   const onSubmit = (data) => {
-    console.log("on submit :", data);
-
     const updateInfo = {
       foodName: data.foodName,
       quantity: data.quantity,
@@ -31,18 +29,16 @@ const UpdateFood = () => {
           // resetting the form
           reset();
 
-          // showing success alert and returning to previous page
+          // navigating the user to previous page
           navigate(-1);
-          Swal.fire({
-            title: "Success",
-            text: `${loadedData.foodName} is now updated`,
-            icon: "success",
-            confirmButtonText: "OK",
-          });
+
+          // showing success alert
+          toast.success("${loadedData.foodName} is now updated.");
         }
       })
       .catch((error) => {
         console.log(error);
+        toast.error("Something went wrong.");
       });
   };
 
@@ -50,6 +46,7 @@ const UpdateFood = () => {
   const handleCancel = () => {
     // resetting the form
     reset();
+
     // returning to previous page
     navigate(-1);
   };

@@ -5,6 +5,7 @@ import UseGreenToBlueBtn from "../../CusmotHooks/UseGreenToBlueBtn";
 import UseAxios from "../../CusmotHooks/UseAxios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const MyFoods = () => {
   // context api
@@ -27,22 +28,27 @@ const MyFoods = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
+      background: "black",
+      color: "white",
     }).then((result) => {
       if (result.isConfirmed) {
         axiosPublic
           .delete(`/foods/${id}`)
           .then((res) => {
             if (res.data.deletedCount > 0) {
-              // refetching the data and showing success message
+              // refetching the data
               refetch();
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success",
-              });
+
+              // showing success message .
+              toast.success("Your food item has been deleted!");
             }
           })
-          .catch((error) => console.log(error));
+          .catch((error) => {
+            console.log(error);
+
+            // showing an alert
+            toast.error("Something went wrong!");
+          });
       }
     });
   };

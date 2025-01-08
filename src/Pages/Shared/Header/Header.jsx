@@ -1,36 +1,27 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../Auth/AuthProvider";
-import Swal from "sweetalert2";
 import UseUnderlineBtn from "../../../CusmotHooks/UseUnderlineBtn";
 import UseBorderYBtn from "../../../CusmotHooks/UseBorderYBtn";
 import { TbBrandGumroad } from "react-icons/tb";
 import UseLogoutBtn from "../../../CusmotHooks/UseLogoutBtn";
+import toast from "react-hot-toast";
 
 const Header = () => {
+  // state's
   const navigate = useNavigate();
+
   // Context api
   const { user, logoutUser } = useContext(AuthContext);
 
   // Handle Logout
   const handleLogout = () => {
     logoutUser().then(() => {
+      // navigating the user
       navigate("/");
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
-      });
-      Toast.fire({
-        icon: "success",
-        title: "Logout successfull",
-      });
+
+      // showing an alert
+      toast.success("Logout successfull.");
     });
   };
 

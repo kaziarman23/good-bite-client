@@ -4,8 +4,8 @@ import { FcGoogle } from "react-icons/fc";
 import { VscGithubInverted } from "react-icons/vsc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Auth/AuthProvider";
-import Swal from "sweetalert2";
 import UseAxios from "../../../CusmotHooks/UseAxios";
+import toast from "react-hot-toast";
 
 const Register = () => {
   // state
@@ -40,35 +40,27 @@ const Register = () => {
           axiosPublic
             .post("/users", userInfo)
             .then((res) => {
-              console.log(res, "is working");
               if (res.data.insertedId) {
                 // clear the error state
                 setRegisterError("");
-                // clearing the form and navigating the user to home page
+
+                // clearing the form
                 reset();
+
+                // navigating the user
                 navigate("/");
 
                 // showing alert
-                const Toast = Swal.mixin({
-                  toast: true,
-                  position: "top-end",
-                  showConfirmButton: false,
-                  timer: 3000,
-                  timerProgressBar: true,
-                  didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                  },
-                });
-                Toast.fire({
-                  icon: "success",
-                  title: "Registation successfully",
-                });
+                toast.success("Registation successfull.");
               }
             })
             .catch((error) => {
               console.log(error.message, error);
               setRegisterError(error.message);
+              reset();
+
+              // showing alert
+              toast.error("Registation Failed. Please try again.");
             });
         });
       })
@@ -98,29 +90,19 @@ const Register = () => {
             // clearing the error state
             setRegisterError("");
 
-            // reseting the form and navigating the user to home page
+            // reseting the form
             reset();
+            // navigating the user
             navigate("/");
 
             // showing alert
-            const Toast = Swal.mixin({
-              toast: true,
-              position: "top-end",
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-              },
-            });
-            Toast.fire({
-              icon: "success",
-              title: "Registation successfully",
-            });
+            toast.success("Register successfull.");
           }
         })
-        .catch((error) => setRegisterError(error.message));
+        .catch((error) => {
+          setRegisterError(error.message);
+          toast.error("Register Failed. Please try again.");
+        });
     });
   };
 
@@ -139,29 +121,21 @@ const Register = () => {
           if (res.data.insertedId) {
             // clearing the error state
             setRegisterError("");
-            // clearing the form and navigating the user to home page
+
+            // clearing the form
             reset();
+
+            // navigating the user
             navigate("/");
 
             // showing alert
-            const Toast = Swal.mixin({
-              toast: true,
-              position: "top-end",
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-              },
-            });
-            Toast.fire({
-              icon: "success",
-              title: "Registation successfully",
-            });
+            toast.success("Register successfull.");
           }
         })
-        .catch((error) => setRegisterError(error.message));
+        .catch((error) => {
+          setRegisterError(error.message);
+          toast.error("Register Failed. Please try again.");
+        });
     });
   };
 
@@ -308,7 +282,9 @@ const Register = () => {
             </button>
           </div>
           {registerError && (
-            <p className="text-red-600 text-center text-sm my-5">{registerError}</p>
+            <p className="text-red-600 text-center text-sm my-5">
+              {registerError}
+            </p>
           )}
         </form>
       </div>

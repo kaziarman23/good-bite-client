@@ -4,7 +4,7 @@ import { VscGithubInverted } from "react-icons/vsc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Auth/AuthProvider";
 import { useContext, useState } from "react";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -27,32 +27,22 @@ const Login = () => {
   const onSubmit = (data) => {
     loginUser(data.email, data.password)
       .then(() => {
-        // showing alert and reseting the form
+        //  reseting the form
         reset();
 
         // navigating the user
         const redirectTo = location?.state?.from || "/";
         navigate(redirectTo);
 
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
-        Toast.fire({
-          icon: "success",
-          title: "logged in successfully",
-        });
+        // showing an alert
+        toast.success("logged in successfully");
       })
       .catch((error) => {
         console.log(error);
         setLoginError(error.message);
+
+        // showing an alert
+        toast.error("Logged in Failed. Please try again.");
       });
   };
 
@@ -64,27 +54,18 @@ const Login = () => {
         const redirectTo = location?.state?.from || "/";
         navigate(redirectTo);
 
-        // showing alert and reseting the form
+        // reseting the form
         reset();
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
-        Toast.fire({
-          icon: "success",
-          title: "Logged in successfully",
-        });
+
+        // showing an alert
+        toast.success("logged in successfully");
       })
       .catch((error) => {
         console.log(error);
         setLoginError(error.message);
+
+        // showing an alert
+        toast.error("Logged in Failed. Please try again.");
       });
   };
 
@@ -96,27 +77,18 @@ const Login = () => {
         const redirectTo = location?.state?.from || "/";
         navigate(redirectTo);
 
-        // showing alert and reseting the form
+        // reseting the form
         reset();
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
-        Toast.fire({
-          icon: "success",
-          title: "Logged in successfully",
-        });
+
+        // showing an alert
+        toast.success("logged in successfully");
       })
       .catch((error) => {
         console.log(error);
         setLoginError(error.message);
+
+        // showing an alert
+        toast.error("Logged in Failed. Please try again.");
       });
   };
 

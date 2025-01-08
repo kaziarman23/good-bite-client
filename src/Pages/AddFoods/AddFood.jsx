@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
 import { useForm } from "react-hook-form";
 import UseAxios from "../../CusmotHooks/UseAxios";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const AddFood = () => {
   // context api
@@ -19,7 +19,6 @@ const AddFood = () => {
 
   // Handle Submit
   const onSubmit = (data) => {
-    console.log("submited data: ", data);
     const foodItemDetails = {
       foodName: data.foodName,
       quantity: data.quantity,
@@ -34,23 +33,11 @@ const AddFood = () => {
     };
     axiosPublic.post("/foods", foodItemDetails).then((res) => {
       if (res.data.insertedId) {
-        // showing alert and clearing the form
+        // clearing the form
         reset();
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
-        Toast.fire({
-          icon: "success",
-          title: "Food item added successfully",
-        });
+        
+        // showing an alert 
+        toast.success('Food item added successfully.')
       }
     });
   };

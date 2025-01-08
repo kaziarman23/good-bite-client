@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import UseAxios from "../../CusmotHooks/UseAxios";
 import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
+import toast from "react-hot-toast";
 
 const FoodDetails = () => {
   // context api
@@ -34,6 +35,8 @@ const FoodDetails = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, do it.",
+      background: "black",
+      color: "white",
     }).then((result) => {
       if (result.isConfirmed) {
         const reqInfo = {
@@ -57,27 +60,28 @@ const FoodDetails = () => {
           .post(`/requests/${foodItem._id}`, reqInfo)
           .then((res) => {
             if (res.data.requestResult.insertedId) {
-              // refetching the data and sending user to home
+              // refetching the data
               refetch();
+
+              // navigating the user
               navigate("/availableFoods");
 
-              // showing alert
-              Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Your request accepted",
-                showConfirmButton: false,
-                timer: 1500,
-              });
+              // showing an alert
+              toast.success("Your request accepted");
             }
           })
-          .catch((error) => console.log(error));
+          .catch((error) => {
+            console.log(error);
+            // showing an alert
+            toast.error("Something went wrong!");
+          });
       }
     });
   };
 
   // handling Unavailable request
   const handleUnavailableReq = () => {
+    // showing an alert
     Swal.fire({
       title: "Error!",
       text: "This food is unavailable right now!",
@@ -106,14 +110,22 @@ const FoodDetails = () => {
             <h1 className="text-lg md:text-xl font-bold">
               Doner Name: {foodItem.name}
             </h1>
-            <h1 className="text-lg md:text-xl">Food Name: {foodItem.foodName}</h1>
-            <h3 className="text-lg md:text-xl">Quantity: {foodItem.quantity}</h3>
-            <p className="text-lg md:text-xl">Expire Date: {foodItem.expireDate}</p>
+            <h1 className="text-lg md:text-xl">
+              Food Name: {foodItem.foodName}
+            </h1>
+            <h3 className="text-lg md:text-xl">
+              Quantity: {foodItem.quantity}
+            </h3>
+            <p className="text-lg md:text-xl">
+              Expire Date: {foodItem.expireDate}
+            </p>
             <p className="text-lg md:text-xl">
               Pickup Location: {foodItem.pickupLocation}
             </p>
             <p className="text-lg md:text-xl">Status: {foodItem.status}</p>
-            <p className="text-lg md:text-xl">Description: {foodItem.description}</p>
+            <p className="text-lg md:text-xl">
+              Description: {foodItem.description}
+            </p>
           </div>
         </div>
         <div className="w-full gap-5 p-4 flex  md:flex-row justify-end items-center">

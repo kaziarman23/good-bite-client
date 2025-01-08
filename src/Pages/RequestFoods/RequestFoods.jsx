@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import useRequest from "../../CusmotHooks/useRequest";
 import UseAxios from "../../CusmotHooks/UseAxios";
+import toast from "react-hot-toast";
 
 const RequestFoods = () => {
   // context api
@@ -29,6 +30,8 @@ const RequestFoods = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, I have it!",
+      background: "black",
+      color: "white",
     }).then((result) => {
       if (result.isConfirmed) {
         axiosPublic
@@ -36,14 +39,17 @@ const RequestFoods = () => {
           .then((res) => {
             if (res.data.deletedCount > 0) {
               refetch();
-              Swal.fire({
-                title: "Alhamdulillah!",
-                text: "Enjoy your food.",
-                icon: "success",
-              });
+
+              // showing an alert
+              toast.success("Enjoy your food.");
             }
           })
-          .catch((error) => console.log(error));
+          .catch((error) => {
+            console.log(error);
+
+            // showing an alert
+            toast.error("Something went wrong.");
+          });
       }
     });
   };
@@ -66,7 +72,8 @@ const RequestFoods = () => {
     <div className="w-full min-h-screen bg-black overflow-hidden">
       <div className="w-full max-w-7xl min-h-full mt-20 mx-auto p-4 bg-slate-950 text-white space-y-5">
         <h5 className="text-left font-bold text-lg">
-          Mr.{user.displayName}, your total food requests are: {requestlist.length}
+          Mr.{user.displayName}, your total food requests are:{" "}
+          {requestlist.length}
         </h5>
         {/* table content */}
         <div className="overflow-x-auto">
@@ -102,7 +109,9 @@ const RequestFoods = () => {
                       </div>
                       <div>
                         <div className="font-bold">{request.name}</div>
-                        <div className="text-sm opacity-50">{request.email}</div>
+                        <div className="text-sm opacity-50">
+                          {request.email}
+                        </div>
                       </div>
                     </div>
                   </td>
