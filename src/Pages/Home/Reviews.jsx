@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import UseAxios from "../../CusmotHooks/UseAxios";
 
 const Reviews = () => {
@@ -27,8 +27,12 @@ const Reviews = () => {
             clickable: true,
           }}
           loop={reviewData.length > 1}
-          navigation={true}
-          modules={[Pagination, Navigation]}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: true,
+          }}
+          // navigation={true}
+          modules={[Pagination, Navigation, Autoplay]}
           className="mySwiper"
         >
           {reviewData.map((review) => (

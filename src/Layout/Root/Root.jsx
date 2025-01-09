@@ -4,7 +4,7 @@ import Header from "../../Pages/Shared/Header/Header";
 
 const Root = () => {
   return (
-    <div className="">
+    <div className="font-poppins">
       <Header />
       <Outlet/>
       <Footer />

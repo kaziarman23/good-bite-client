@@ -1,13 +1,14 @@
 const Statistics = () => {
   return (
-    <div className="w-full h-full bg-[#212323] overflow-hidden">
+    <div className="w-full h-full bg-black overflow-hidden xl:h-screen">
       <div className="w-full h-full p-3 mx-auto xl:w-4/5">
-        <div className="text-white flex flex-col gap-4 justify-center items-center my-10 xl:flex-row xl:gap-0">
+
+        <div className="w-full h-1/2 text-white flex flex-col gap-4 justify-center items-center my-10 xl:flex-row xl:gap-0">
           <div className="w-full h-full space-y-4 xl:w-1/2">
             <h1 className="text-xl text-left font-bold sm:text-center">
               Global Hunger Statistics
             </h1>
-            <p className='text-sm'>
+            <p className='text-base'>
               Around 735 million people around the world are facing hunger in
               2023, according to the latest data from the United Nations (UN)
               and the World Food Programme (WFP). This is an increase from
@@ -46,8 +47,8 @@ const Statistics = () => {
         </div>
 
         {/* Stats Content */}
-        <div className="w-full h-full my-10">
-          <div className="w-full h-full text-center stats stats-vertical border-2 bg-black text-white lg:stats-horizontal lg:flex shadow">
+        <div className="w-full h-1/2 my-10">
+          <div className="w-full h-1/2 text-center stats stats-vertical border-2 bg-black text-white lg:stats-horizontal lg:flex shadow">
             <div className="stat">
               <div className="stat-title">Meals Provided</div>
               <div className="stat-value">74K</div>

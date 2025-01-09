@@ -93,10 +93,10 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-gray-950 flex justify-center items-center">
-      <div className="w-96 h-auto bg-black p-5 rounded-xl">
+    <div className="w-full h-screen bg-black flex justify-center items-center">
+      <div className="w-11/12 h-auto bg-black border-2 p-5 rounded-xl mt-5 md:w-1/2 xl:w-1/2">
         <form onSubmit={handleSubmit(onSubmit)} className="w-full mx-auto">
-          <h1 className="text-white text-center font-bold text-2xl">
+          <h1 className="text-white text-center font-bold text-2xl mb-5">
             Please Login
           </h1>
 
@@ -169,7 +169,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full font-bold border-2 rounded-lg text-sm px-5 py-3 text-center text-white border-blue-600 bg-blue-600 hover:bg-black hover:text-blue-600 hover:border-blue-600 sm:w-auto lg:w-full"
+            className="w-full font-bold border-2 rounded-lg text-sm px-5 py-3 text-center uppercase border-blue-600 bg-black text-blue-500 hover:bg-blue-700 hover:text-white hover:border-blue-700"
           >
             Login
           </button>

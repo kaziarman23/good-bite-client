@@ -2,12 +2,12 @@ import { useNavigate, useParams } from "react-router";
 import UseFood from "../../CusmotHooks/UseFood";
 import UseGreenToBlueBtn from "../../CusmotHooks/UseGreenToBlueBtn";
 import { Link } from "react-router-dom";
-import UsePurpleToPinkBtn from "../../CusmotHooks/UsePurpleToPinkBtn";
 import Swal from "sweetalert2";
 import UseAxios from "../../CusmotHooks/UseAxios";
 import { useContext } from "react";
 import { AuthContext } from "../../Auth/AuthProvider";
 import toast from "react-hot-toast";
+import UseRedBtn from "../../CusmotHooks/UseRedBtn";
 
 const FoodDetails = () => {
   // context api
@@ -130,7 +130,7 @@ const FoodDetails = () => {
         </div>
         <div className="w-full gap-5 p-4 flex  md:flex-row justify-end items-center">
           <Link to="/availableFoods">
-            <UsePurpleToPinkBtn>Back</UsePurpleToPinkBtn>
+            <UseRedBtn>Back</UseRedBtn>
           </Link>
           {foodItem.status === "unavailable" ? (
             <UseGreenToBlueBtn onClick={handleUnavailableReq}>

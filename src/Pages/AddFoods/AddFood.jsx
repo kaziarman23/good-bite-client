@@ -298,7 +298,8 @@ const AddFood = () => {
             </div>
             <button
               type="submit"
-              className="text-black bg-blue-700 hover:text-white hover:bg-blue-500 inline-flex items-center font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+              // text-black bg-blue-700 hover:text-white hover:bg-blue-500
+              className="w-full font-medium rounded-xl text-sm px-5 py-2.5 text-center uppercase bg-black text-white border-2 hover:text-orange-500"
             >
               Add new product
             </button>

@@ -1,8 +1,7 @@
 import { FaDiscord, FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
-import { TbBrandGumroad } from "react-icons/tb";
+import { BiSolidCookie } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-
 const Footer = () => {
   const handleClick = () => {
     Swal.fire({
@@ -22,7 +21,7 @@ const Footer = () => {
           <div className="mb-6 md:mb-0">
             <h1 className="flex items-center">
               <Link to="/" className="flex items-center text-white">
-                <TbBrandGumroad className="w-8 h-8 mr-2" />
+                <BiSolidCookie className="w-8 h-8 mr-2" />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap">
                   Good Bite
                 </span>

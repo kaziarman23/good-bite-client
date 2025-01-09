@@ -35,7 +35,7 @@ const MissionSection = () => {
         </h1>
         <div className="flex flex-col justify-center items-center gap-5 lg:flex-row">
           {missionDetails.map((mission) => (
-            <div key={mission.id} className="w-full h-72 border-2 sm:h-48 lg:h-64">
+            <div key={mission.id} className="w-full h-72 border-2 rounded-2xl sm:h-48 lg:h-64">
               <div className="flex justify-center items-center gap-3 p-5">
                 <img
                   src={mission.icon}

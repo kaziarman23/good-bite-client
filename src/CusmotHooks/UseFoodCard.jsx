@@ -17,7 +17,10 @@ const UseFoodCard = ({ food }) => {
         <p className="text-sm md:text-base xl:text-xl">{food.pickupLocation}</p>
         <div className="card-actions justify-end">
           <Link to={`/availableFoods/foodDetails/${food._id}`}>
-            <button className="btn border-blue-500  bg-black text-white hover:border-blue-500 hover:bg-blue-600 md:text-base">
+            {/* <button className="btn border-blue-500  bg-black text-white hover:border-blue-500 hover:bg-blue-600 md:text-base">
+              View Details
+            </button> */}
+            <button className="btn md:text-base bg-black text-white hover:bg-white hover:text-black">
               View Details
             </button>
           </Link>

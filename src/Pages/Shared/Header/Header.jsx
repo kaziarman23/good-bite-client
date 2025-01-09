@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Auth/AuthProvider";
 import UseUnderlineBtn from "../../../CusmotHooks/UseUnderlineBtn";
 import UseBorderYBtn from "../../../CusmotHooks/UseBorderYBtn";
-import { TbBrandGumroad } from "react-icons/tb";
+import { BiSolidCookie } from "react-icons/bi";
 import UseLogoutBtn from "../../../CusmotHooks/UseLogoutBtn";
 import toast from "react-hot-toast";
 
@@ -97,7 +97,7 @@ const Header = () => {
           className="flex items-center gap-2 whitespace-nowrap p-2 sm:p-4"
           size="text-xs sm:text-sm md:text-xl"
         >
-          <TbBrandGumroad />
+          <BiSolidCookie />
           Good Bite
         </UseBorderYBtn>
       </div>
@@ -109,7 +109,7 @@ const Header = () => {
           <UseLogoutBtn onClick={handleLogout}>Logout</UseLogoutBtn>
         ) : (
           <Link to="/register">
-            <button className="px-4 py-2 rounded-md border-2 text-black font-bold bg-[#cad0d2] hover:bg-[#a8a8a8] ">
+            <button className="px-4 py-2 rounded-2xl border-2 text-white font-bold bg-black hover:bg-[#cad0d2] hover:text-black ">
               Register
             </button>
           </Link>
